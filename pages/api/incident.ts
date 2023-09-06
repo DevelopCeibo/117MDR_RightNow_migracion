@@ -10,6 +10,6 @@ export default function handler(
   res: NextApiResponse<IncidentType[]>
 ) {
   Incident.find({}).then((allIncidents: IncidentType[] | []) => {
-    res.status(200).json([allIncidents[0], allIncidents[1]])
+    res.status(200).json(allIncidents)
   })
 }

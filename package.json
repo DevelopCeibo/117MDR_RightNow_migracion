@@ -10,6 +10,10 @@
     "seed:incidents": "ts-node ./seeds/incident.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.8",
+    "@mui/x-data-grid": "^6.12.1",
     "csv-parse": "5.5.0",
     "mongoose": "7.5.0",
     "next": "13.4.19",
