@@ -25,14 +25,14 @@ const IncidentPage: NextPage = () => {
     {
       field: 'Motivo',
       headerName: 'Motivo',
-      width: 180,
-      flex: 1,
+      width: 240,
+      flex: 1.4,
       headerClassName: 'theme--header'
     },
     {
       field: 'Registrado por',
       headerName: 'Registrado por',
-      width: 150,
+      width: 200,
       flex: 1,
       headerClassName: 'theme--header'
     },
@@ -53,15 +53,15 @@ const IncidentPage: NextPage = () => {
     {
       field: 'Estado',
       headerName: 'Estado',
-      width: 100,
-      flex: 1,
+      width: 80,
+      flex: 0.9,
       headerClassName: 'theme--header'
     },
     {
       field: 'Asignado a',
       headerName: 'Asignado a',
-      width: 100,
-      flex: 1,
+      width: 50,
+      flex: 0.6,
       headerClassName: 'theme--header'
     },
     {
@@ -85,7 +85,7 @@ const IncidentPage: NextPage = () => {
       field: 'Productor',
       headerName: 'Productor',
       width: 320,
-      flex: 1,
+      flex: 1.1,
       headerClassName: 'theme--header'
     },
     {
