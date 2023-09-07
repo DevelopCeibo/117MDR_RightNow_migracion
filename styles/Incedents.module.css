@@ -2,5 +2,14 @@
   max-width: 95vw;
 }
 .title {
+  margin: 0 auto;
+}
+
+.header {
   padding: 30px;
+  display: flex;
+}
+.flex {
+  display: flex;
+  gap: 5px;
 }

@@ -294,7 +294,14 @@
   "resolved" "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.14.8.tgz"
   "version" "5.14.8"
 
-"@mui/material@^5.14.8", "@mui/material@^5.4.1":
+"@mui/icons-material@^5.14.8":
+  "integrity" "sha512-YXcReLydTuNWb1/PxduAH5LgnHNH6spSQBaA0JOz9HD4J+vwst0IanAQgsXy9KKCJSjCsHywE3DB8X+w/b4eeQ=="
+  "resolved" "https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.14.8.tgz"
+  "version" "5.14.8"
+  dependencies:
+    "@babel/runtime" "^7.22.10"
+
+"@mui/material@^5.0.0", "@mui/material@^5.14.8", "@mui/material@^5.4.1":
   "integrity" "sha512-fqvDGGF1pXwOOL/f0Gw+KHo/67hasRpf2ApTIJkbuONOk9AUb2jnYMEqCWmL2sUcbbE3ShMbHl8N7HPSsRv1/A=="
   "resolved" "https://registry.npmjs.org/@mui/material/-/material-5.14.8.tgz"
   "version" "5.14.8"
@@ -958,6 +965,11 @@
   dependencies:
     "@babel/runtime" "^7.8.7"
     "csstype" "^3.0.2"
+
+"dotenv@^16.3.1":
+  "integrity" "sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz"
+  "version" "16.3.1"
 
 "emoji-regex@^9.2.2":
   "integrity" "sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg=="

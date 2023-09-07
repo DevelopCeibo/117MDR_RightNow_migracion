@@ -38,7 +38,7 @@ parser.on('end', async function () {
   await Incident.insertMany(cvsContent)
     .then(() => {
       console.log(
-        `Los datos del archivo ${fileToRead} fueron almacenados en la base de todos exitosamente`
+        `Los datos del archivo ${fileToRead} fueron almacenados en la base de datos exitosamente`
       )
       process.exit(1)
     })
