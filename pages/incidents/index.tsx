@@ -1,20 +1,37 @@
 import type { NextPage } from 'next'
 import styles from '../../styles/Incedents.module.css'
-import { Box, Container, Typography, colors } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import type { IncidentType } from '../../types'
-import { DataGrid, GridValueGetterParams } from '@mui/x-data-grid'
+import {
+  DataGrid,
+  GridPaginationModel,
+  GridValueGetterParams
+} from '@mui/x-data-grid'
 import Link from 'next/link'
 import ReplyIcon from '@mui/icons-material/Reply'
 
 const IncidentPage: NextPage = () => {
-  const [incident, setIncident] = useState<IncidentType[] | []>([])
+  const [paginationModel, setPaginationModel] = useState({
+    page: 0,
+    pageSize: 25
+  })
+  const [total, setTotal] = useState(100)
+  const [incidents, setIncidents] = useState<IncidentType[] | []>([])
 
   useEffect(() => {
-    fetch('api/incident')
-      .then((data) => data.json())
-      .then((incidents) => setIncident(incidents))
-  }, [])
+    fetch(
+      `api/incident?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('data', data)
+        setIncidents([...data.incidents])
+        setTotal(data.total)
+      })
+  }, [paginationModel])
+
+  const totalPages = Math.ceil(total / paginationModel.pageSize)
 
   const columns = [
     {
@@ -102,6 +119,10 @@ const IncidentPage: NextPage = () => {
     }
   ]
 
+  const handlePaginationChange = (param: GridPaginationModel) => {
+    setPaginationModel(param)
+  }
+
   const getRowId = (row: IncidentType) => row._id
 
   return (
@@ -118,7 +139,20 @@ const IncidentPage: NextPage = () => {
         </Typography>
       </div>
       <Box sx={{ height: '80vh', width: '100%' }}>
-        <DataGrid columns={columns} rows={incident} getRowId={getRowId} />
+        <DataGrid
+          columns={columns}
+          rows={incidents}
+          rowCount={total}
+          getRowId={getRowId}
+          pageSizeOptions={[25, 50, 100]}
+          paginationMode={paginationModel}
+          onPaginationModelChange={handlePaginationChange}
+          initialState={{
+            pagination: {
+              paginationModel: paginationModel
+            }
+          }}
+        />
       </Box>
     </Container>
   )
