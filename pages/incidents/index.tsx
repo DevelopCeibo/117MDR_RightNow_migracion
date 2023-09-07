@@ -25,7 +25,6 @@ const IncidentPage: NextPage = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log('data', data)
         setIncidents([...data.incidents])
         setTotal(data.total)
       })
@@ -126,7 +125,7 @@ const IncidentPage: NextPage = () => {
   const getRowId = (row: IncidentType) => row._id
 
   return (
-    <Container className={styles.container}>
+    <Container className={styles.container} maxWidth='xl'>
       <div className={styles.header}>
         <Link href='./' className={styles.flex}>
           <ReplyIcon />
