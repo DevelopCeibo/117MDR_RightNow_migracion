@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import type { IncidentType } from '../../types'
 import { DataGrid, GridValueGetterParams } from '@mui/x-data-grid'
 import Link from 'next/link'
+import ReplyIcon from '@mui/icons-material/Reply'
 
 const IncidentPage: NextPage = () => {
   const [incident, setIncident] = useState<IncidentType[] | []>([])
@@ -106,13 +107,14 @@ const IncidentPage: NextPage = () => {
   return (
     <Container className={styles.container}>
       <div className={styles.header}>
-        <Link href='./'>
-          <Typography variant='h5' className={styles.title}>
+        <Link href='./' className={styles.flex}>
+          <ReplyIcon />
+          <Typography variant='h6' className={styles.title}>
             Home
           </Typography>
         </Link>
         <Typography variant='h3' className={styles.title}>
-          Listas de Incidentes
+          Lista de Incidentes
         </Typography>
       </div>
       <Box sx={{ height: '80vh', width: '100%' }}>

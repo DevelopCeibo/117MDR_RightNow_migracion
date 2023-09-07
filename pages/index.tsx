@@ -17,22 +17,22 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <Link href='./incidents' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
-            <p>Ingrese aquí para inspeccionar la tabla de Indedentes</p>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
           <Link href='./incidents' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
-            <p>Ingrese aquí para inspeccionar la tabla de Indedentes</p>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
           <Link href='./incidents' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
-            <p>Ingrese aquí para inspeccionar la tabla de Indedentes</p>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
           <Link href='./incidents' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
-            <p>Ingrese aquí para inspeccionar la tabla de Indedentes</p>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
         </div>
       </main>
