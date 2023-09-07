@@ -145,7 +145,7 @@ const IncidentPage: NextPage = () => {
           rowCount={total}
           getRowId={getRowId}
           pageSizeOptions={[25, 50, 100]}
-          paginationMode={paginationModel}
+          paginationMode='server'
           onPaginationModelChange={handlePaginationChange}
           initialState={{
             pagination: {
