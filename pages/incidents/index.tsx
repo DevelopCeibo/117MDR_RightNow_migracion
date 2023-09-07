@@ -130,11 +130,9 @@ const IncidentPage: NextPage = () => {
       <div className={styles.header}>
         <Link href='./' className={styles.flex}>
           <ReplyIcon />
-          <Typography variant='h6' className={styles.title}>
-            Home
-          </Typography>
+          <Typography variant='h6'>Home</Typography>
         </Link>
-        <Typography variant='h3' className={styles.title}>
+        <Typography variant='h3' className={styles.title} margin='auto'>
           Lista de Incidentes
         </Typography>
       </div>
