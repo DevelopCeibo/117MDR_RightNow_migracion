@@ -10,8 +10,8 @@ async function seeds() {
   const insertPromise: Promise<any>[] = []
 
   console.log('files', files)
-  let i = 0
-  for (i; i < files.length; i++) {
+
+  for (let i = 0; i < files.length; i++) {
     const [, modelName, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
     console.log('modelName', modelName)
 
