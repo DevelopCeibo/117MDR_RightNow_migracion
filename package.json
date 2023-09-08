@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed:incidents": "ts-node ./seeds/incidente.ts"
+    "seed:incidentes": "ts-node ./seeds/incidente.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
