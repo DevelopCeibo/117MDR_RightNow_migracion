@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import styles from '../../styles/Incedents.module.css'
 import { Box, Container, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
-import type { IncidentType } from '../../types'
+import type { IncidenteType } from '../../types'
 import {
   DataGrid,
   GridPaginationModel,
@@ -18,11 +18,11 @@ const IncidentPage: NextPage = () => {
     pageSize: 25
   })
   const [total, setTotal] = useState(100)
-  const [incidents, setIncidents] = useState<IncidentType[] | []>([])
+  const [incidents, setIncidents] = useState<IncidenteType[] | []>([])
 
   useEffect(() => {
     fetch(
-      `api/incident?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
+      `api/incidentes?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -123,7 +123,7 @@ const IncidentPage: NextPage = () => {
     setPaginationModel(param)
   }
 
-  const getRowId = (row: IncidentType) => row._id
+  const getRowId = (row: IncidenteType) => row._id
 
   return (
     <>
