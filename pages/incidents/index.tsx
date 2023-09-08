@@ -10,6 +10,7 @@ import {
 } from '@mui/x-data-grid'
 import Link from 'next/link'
 import ReplyIcon from '@mui/icons-material/Reply'
+import Head from 'next/head'
 
 const IncidentPage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
@@ -125,33 +126,39 @@ const IncidentPage: NextPage = () => {
   const getRowId = (row: IncidentType) => row._id
 
   return (
-    <Container className={styles.container} maxWidth='xl'>
-      <div className={styles.header}>
-        <Link href='./' className={styles.flex}>
-          <ReplyIcon />
-          <Typography variant='h6'>Home</Typography>
-        </Link>
-        <Typography variant='h3' className={styles.title} margin='auto'>
-          Lista de Incidentes
-        </Typography>
-      </div>
-      <Box sx={{ height: '80vh', width: '100%' }}>
-        <DataGrid
-          columns={columns}
-          rows={incidents}
-          rowCount={total}
-          getRowId={getRowId}
-          pageSizeOptions={[25, 50, 100]}
-          paginationMode='server'
-          onPaginationModelChange={handlePaginationChange}
-          initialState={{
-            pagination: {
-              paginationModel: paginationModel
-            }
-          }}
-        />
-      </Box>
-    </Container>
+    <>
+      <Head>
+        <title>Tabla de Incidentes</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Container className={styles.container} maxWidth='xl'>
+        <div className={styles.header}>
+          <Link href='./' className={styles.flex}>
+            <ReplyIcon />
+            <Typography variant='h6'>Home</Typography>
+          </Link>
+          <Typography variant='h3' className={styles.title} margin='auto'>
+            Lista de Incidentes
+          </Typography>
+        </div>
+        <Box sx={{ height: '80vh', width: '100%' }}>
+          <DataGrid
+            columns={columns}
+            rows={incidents}
+            rowCount={total}
+            getRowId={getRowId}
+            pageSizeOptions={[25, 50, 100]}
+            paginationMode='server'
+            onPaginationModelChange={handlePaginationChange}
+            initialState={{
+              pagination: {
+                paginationModel: paginationModel
+              }
+            }}
+          />
+        </Box>
+      </Container>
+    </>
   )
 }
 
