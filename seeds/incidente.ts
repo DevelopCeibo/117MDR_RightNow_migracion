@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs'
 import { parse } from 'csv-parse'
 import dbConection from '../db'
-import Incident from '../models/incident'
-import type { IncidentType } from '../types'
+import Incident from '../models/incidente'
+import type { IncidenteType } from '../types'
 
 dbConection()
 
-const fileToRead = 'assets/Migracion_CT_2023_08_17.csv'
+const fileToRead = 'assets/Migracion_CT_Incidente.csv'
 let fileContent = readFileSync(fileToRead, 'utf-8')
 
 if (fileContent.charCodeAt(0) === 0xfeff) {
@@ -26,7 +26,7 @@ const parser = parse(fileContent, {
   }
 })
 
-const cvsContent: IncidentType[] = []
+const cvsContent: IncidenteType[] = []
 parser.on('readable', function () {
   let record
   while ((record = parser.read())) {

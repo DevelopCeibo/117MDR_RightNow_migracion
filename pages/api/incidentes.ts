@@ -1,13 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import connectDB from '../../db'
-import Incident from '../../models/incident'
-import type { IncidentType } from '../../types'
+import Incident from '../../models/incidente'
+import type { IncidenteType } from '../../types'
 
 connectDB()
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ incidents: IncidentType[]; total: number }>
+  res: NextApiResponse<{ incidents: IncidenteType[]; total: number }>
 ) {
   const page = Number(req.query.page) || 0
   const limit = Number(req.query.limit) || 25
