@@ -15,22 +15,22 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>Listado de Tablas</h1>
 
         <div className={styles.grid}>
-          <Link href='./incidents' className={styles.card}>
+          <Link href='./incidentes' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
-          <Link href='./incidents' className={styles.card}>
+          <Link href='./respuestas' className={styles.card}>
+            <h2>Tabla de Repuestas</h2>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
+          </Link>
+
+          <Link href='./incidentes' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
-          <Link href='./incidents' className={styles.card}>
-            <h2>Tabla de Incidentes</h2>
-            <p>Ingrese aquí para inspeccionar la tabla</p>
-          </Link>
-
-          <Link href='./incidents' className={styles.card}>
+          <Link href='./incidentes' className={styles.card}>
             <h2>Tabla de Incidentes</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
