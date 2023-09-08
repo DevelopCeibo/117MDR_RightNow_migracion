@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import styles from '../../styles/Incedents.module.css'
+import styles from '../../styles/Respuestas.module.css'
 import { Box, Container, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
-import type { IncidenteType } from '../../types'
+import type { RespuestaType } from '../../types'
 import {
   DataGrid,
   GridPaginationModel,
@@ -12,21 +12,21 @@ import Link from 'next/link'
 import ReplyIcon from '@mui/icons-material/Reply'
 import Head from 'next/head'
 
-const IncidentPage: NextPage = () => {
+const RespuestaPage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 25
   })
   const [total, setTotal] = useState(100)
-  const [incidents, setIncidents] = useState<IncidenteType[] | []>([])
+  const [respuestas, setRespuestas] = useState<RespuestaType[] | []>([])
 
   useEffect(() => {
     fetch(
-      `api/incidentes?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
+      `api/respuestas?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setIncidents([...data.incidents])
+        setRespuestas([...data.respuestas])
         setTotal(data.total)
       })
   }, [paginationModel])
@@ -42,50 +42,29 @@ const IncidentPage: NextPage = () => {
       headerClassName: 'theme--header'
     },
     {
-      field: 'Motivo',
-      headerName: 'Motivo',
+      field: 'Texto',
+      headerName: 'Texto',
       minWidth: 240,
-      flex: 1.4,
+      flex: 2,
       headerClassName: 'theme--header'
     },
     {
-      field: 'Registrado por',
-      headerName: 'Registrado por',
+      field: 'ID de hilo del incidente',
+      headerName: 'ID de hilo del incidente',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header'
     },
     {
-      field: 'Buzón de correo',
-      headerName: 'Buzón de correo',
+      field: 'Cabecera de correo',
+      headerName: 'Cabecera de correo',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header'
     },
     {
-      field: 'Cliente',
-      headerName: 'Cliente',
-      minWidth: 210,
-      flex: 1,
-      headerClassName: 'theme--header'
-    },
-    {
-      field: 'Estado',
-      headerName: 'Estado',
-      minWidth: 80,
-      flex: 0.9,
-      headerClassName: 'theme--header'
-    },
-    {
-      field: 'Asignado a',
-      headerName: 'Asignado a',
-      minWidth: 90,
-      flex: 0.6,
-      headerClassName: 'theme--header'
-    },
-    {
-      field: 'Sector Responsable',
-      headerName: 'Sector Responsable',
+      field: 'ID de contacto',
+      headerName: 'ID de contacto',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header'
@@ -94,24 +73,7 @@ const IncidentPage: NextPage = () => {
       field: 'Fecha de creación',
       headerName: 'Fecha de creación',
       type: 'date',
-      minWidth: 140,
-      flex: 1,
-      headerClassName: 'theme--header',
-      valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación'])
-    },
-    {
-      field: 'Productor',
-      headerName: 'Productor',
-      minWidth: 320,
-      flex: 1.1,
-      headerClassName: 'theme--header'
-    },
-    {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
-      type: 'date',
-      minWidth: 150,
+      minWidth: 120,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
@@ -123,12 +85,12 @@ const IncidentPage: NextPage = () => {
     setPaginationModel(param)
   }
 
-  const getRowId = (row: IncidenteType) => row._id
+  const getRowId = (row: RespuestaType) => row._id
 
   return (
     <>
       <Head>
-        <title>Tabla de Incidentes</title>
+        <title>Tabla de Respuestas</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Container className={styles.container} maxWidth='xl'>
@@ -138,13 +100,13 @@ const IncidentPage: NextPage = () => {
             <Typography variant='h6'>Home</Typography>
           </Link>
           <Typography variant='h3' className={styles.title} margin='auto'>
-            Lista de Incidentes
+            Lista de Respuestas
           </Typography>
         </div>
         <Box sx={{ height: '80vh', width: '100%' }}>
           <DataGrid
             columns={columns}
-            rows={incidents}
+            rows={respuestas}
             rowCount={total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
@@ -162,4 +124,4 @@ const IncidentPage: NextPage = () => {
   )
 }
 
-export default IncidentPage
+export default RespuestaPage

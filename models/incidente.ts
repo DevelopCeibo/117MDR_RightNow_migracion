@@ -1,9 +1,9 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Model, Schema } from 'mongoose'
 import type { IncidenteType } from '../types'
 
 // 1. Definición del Schema
 
-let incidenteSchema: Schema = new mongoose.Schema({
+const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
   //_id: ObjectId: Identificador único de documento
   'Nro Incidente': {
     type: String,
@@ -15,51 +15,50 @@ let incidenteSchema: Schema = new mongoose.Schema({
   },
   'Registrado por': {
     type: String,
-    require: true
+    required: true
   },
   Grupo: {
     type: String,
-    require: true,
+    required: true,
     default: 'Sin valor'
   },
   'Buzón de correo': {
     type: String,
-    require: true,
+    required: true,
     default: 'Sin valor'
   },
   Cliente: {
     type: String,
-    require: true
+    required: true
   },
   Estado: {
     type: String,
-    require: true
+    required: true
   },
   'Asignado a': {
     type: String
   },
   'Sector Responsable': {
     type: String,
-    require: true
+    required: true
   },
   'Fecha de creación': {
     type: Date,
-    require: true
+    required: true
   },
   Productor: {
     type: String,
-    require: true
+    required: true
   },
   'Fecha de última actualización': {
     type: Date,
-    require: true
+    required: true
   }
 })
 
 // 2. Definición del Modelo
 
-const Incidente =
-  mongoose.models.Incident ||
-  mongoose.model<IncidenteType>('Incidente', incidenteSchema)
+const Incidente: Model<IncidenteType> =
+  mongoose.models.Incidente || mongoose.model('Incidente', incidenteSchema)
 
 export default Incidente
