@@ -6,8 +6,6 @@ import styles from '../styles/Home.module.css'
 import { AuthContext } from '../context/auth'
 
 const Home: NextPage = () => {
-  const { isLogged } = useContext(AuthContext)
-  console.log('isLogged', isLogged)
   return (
     <div className={styles.container}>
       <Head>

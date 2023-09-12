@@ -30,9 +30,9 @@ const Login = () => {
   const [showError, setShowError] = useState(false)
   const router = useRouter()
 
-  const onLogin: SubmitHandler<DataForm> = (data) => {
+  const onLogin: SubmitHandler<DataForm> = ({ email, password }) => {
     setShowError(false)
-    if (!(data.email === 'admin@zurich.com' && data.password === '123456')) {
+    if (!(email === 'admin@zurich.com' && password === '123456')) {
       setShowError(true)
       setTimeout(() => setShowError(false), 3000)
       return
@@ -40,6 +40,7 @@ const Login = () => {
 
     login()
     router.back()
+    return
   }
   return (
     <Container maxWidth='md' sx={{ display: 'grid', placeItems: 'center' }}>

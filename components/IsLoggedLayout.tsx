@@ -14,7 +14,7 @@ const IsLoggedLayout: FC<Props> = ({ children }) => {
     if (!isLogged) {
       router.push('/login')
     }
-  }, [isLogged, router])
+  }, [isLogged])
 
   return <>{children}</>
 }
