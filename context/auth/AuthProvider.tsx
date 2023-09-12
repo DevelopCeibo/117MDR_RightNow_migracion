@@ -16,10 +16,20 @@ const AUTH_INITIAL_STATE: AuthState = {
 export const AuthProvider: FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, AUTH_INITIAL_STATE)
 
+  const login = () => {
+    dispatch({ type: 'Auth-Login' })
+  }
+
+  const logout = () => {
+    dispatch({ type: 'Auth-Logout' })
+  }
+
   return (
     <AuthContext.Provider
       value={{
-        ...state
+        ...state,
+        login,
+        logout
       }}>
       {children}
     </AuthContext.Provider>
