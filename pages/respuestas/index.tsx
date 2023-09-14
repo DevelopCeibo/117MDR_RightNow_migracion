@@ -38,7 +38,7 @@ const RespuestaPage: NextPage = () => {
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha de creación'
     )
-    console.log('incidentNumberFilter', incidentNumberFilter)
+
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
       incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,

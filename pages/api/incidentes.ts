@@ -30,7 +30,7 @@ export default function handler(
   }
   if (creationDate) {
     const filterDate = new Date(creationDate)
-    console.log('filterDate', filterDate)
+
     const day = filterDate.getDate()
     const month = filterDate.getMonth()
     const year = filterDate.getFullYear()
@@ -42,10 +42,6 @@ export default function handler(
       $lt: endDate
     }
   }
-
-  console.log('page', page)
-  console.log('limit', limit)
-  console.log('query', query)
 
   Promise.all([
     Incidente.find(query)
