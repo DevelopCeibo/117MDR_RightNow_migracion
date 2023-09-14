@@ -1,34 +1,26 @@
+import { useCallback, useState } from 'react'
 import type { NextPage } from 'next'
-import styles from '../../styles/Incidentes.module.css'
-import { Box, Container, TextField, Typography } from '@mui/material'
-import { useCallback, useEffect, useState } from 'react'
-import type { IncidenteType } from '../../types'
+import Head from 'next/head'
+import Link from 'next/link'
+import { Box, Container, Typography } from '@mui/material'
 import {
   DataGrid,
-  GridCellParams,
-  GridColDef,
-  GridFilterItem,
   GridFilterModel,
-  GridFilterOperator,
   GridPaginationModel,
   GridValueGetterParams,
   getGridDateOperators,
-  getGridNumericOperators,
   getGridStringOperators
 } from '@mui/x-data-grid'
-import Link from 'next/link'
 import ReplyIcon from '@mui/icons-material/Reply'
-import Head from 'next/head'
 import { useIncidentes } from '../../hooks/useIncidentes'
-import Incidente from '../../models/incidente'
+import type { IncidenteType } from '../../types'
+import styles from '../../styles/Incidentes.module.css'
 
-const IncidentPage: NextPage = () => {
+const IncidentePage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 25
   })
-  const [total, setTotal] = useState(100)
-  const [incidentes, setIncidentes] = useState<IncidenteType[] | []>([])
 
   //Filtrando del lado del servidor
   const [queryOptions, setQueryOptions] = useState({
@@ -61,20 +53,6 @@ const IncidentPage: NextPage = () => {
 
   const { isLoading, rows }: { isLoading: boolean; rows: RowType } =
     useIncidentes(queryOptions)
-
-  console.log('rows =>', rows)
-  /* useEffect(() => {
-    fetch(
-      `api/incidentes?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setIncidentes([...data.incidentes])
-        setTotal(data.total)
-      })
-  }, [paginationModel]) */
-
-  const totalPages = Math.ceil(total / paginationModel.pageSize)
 
   const columns = [
     {
@@ -150,10 +128,8 @@ const IncidentPage: NextPage = () => {
       minWidth: 160,
       flex: 1,
       headerClassName: 'theme--header',
-      valueGetter: (params: GridValueGetterParams) => {
-        console.log('fecha en la tabla', params.row['Fecha de creación'])
-        return new Date(params.row['Fecha de creación'])
-      },
+      valueGetter: (params: GridValueGetterParams) =>
+        new Date(params.row['Fecha de creación']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
@@ -187,7 +163,7 @@ const IncidentPage: NextPage = () => {
   }
 
   const getRowId = (row: IncidenteType) => row._id
-  console.log('queryOptions', queryOptions)
+
   return (
     <>
       <Head>
@@ -228,4 +204,4 @@ const IncidentPage: NextPage = () => {
   )
 }
 
-export default IncidentPage
+export default IncidentePage

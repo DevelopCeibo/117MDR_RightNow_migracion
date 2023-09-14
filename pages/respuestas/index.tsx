@@ -1,37 +1,58 @@
+import { useCallback, useState } from 'react'
+import Link from 'next/link'
+import Head from 'next/head'
 import type { NextPage } from 'next'
-import styles from '../../styles/Respuestas.module.css'
 import { Box, Container, Typography } from '@mui/material'
-import { useEffect, useState } from 'react'
-import type { RespuestaType } from '../../types'
 import {
   DataGrid,
+  GridFilterModel,
   GridPaginationModel,
-  GridValueGetterParams
+  GridValueGetterParams,
+  getGridDateOperators,
+  getGridStringOperators
 } from '@mui/x-data-grid'
-import Link from 'next/link'
 import ReplyIcon from '@mui/icons-material/Reply'
-import Head from 'next/head'
+import { useRespuestas } from '../../hooks/useRespuestas'
+import type { RespuestaType } from '../../types'
+import styles from '../../styles/Respuestas.module.css'
 
 const RespuestaPage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 25
   })
-  const [total, setTotal] = useState(100)
-  const [respuestas, setRespuestas] = useState<RespuestaType[] | []>([])
 
-  useEffect(() => {
-    fetch(
-      `api/respuestas?page=${paginationModel.page}&limit=${paginationModel.pageSize}`
+  //Filtrando del lado del servidor
+  const [queryOptions, setQueryOptions] = useState({
+    page: paginationModel.page,
+    limit: paginationModel.pageSize,
+    incidentNumber: '',
+    creationDate: ''
+  })
+
+  const onFilterChange = useCallback((filterModel: GridFilterModel) => {
+    filterModel.items
+    const incidentNumberFilter = filterModel.items.find(
+      (item) => item.field === 'Nro Incidente'
     )
-      .then((res) => res.json())
-      .then((data) => {
-        setRespuestas([...data.respuestas])
-        setTotal(data.total)
-      })
-  }, [paginationModel])
+    const creationDateFilter = filterModel.items.find(
+      (item) => item.field === 'Fecha de creación'
+    )
+    console.log('incidentNumberFilter', incidentNumberFilter)
+    setQueryOptions((prevOptions) => ({
+      ...prevOptions,
+      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      creationDate: creationDateFilter ? creationDateFilter.value : null
+    }))
+  }, [])
 
-  const totalPages = Math.ceil(total / paginationModel.pageSize)
+  type RowType = {
+    total: number
+    respuestas: RespuestaType[]
+  }
+
+  const { isLoading, rows }: { isLoading: boolean; rows: RowType } =
+    useRespuestas(queryOptions)
 
   const columns = [
     {
@@ -39,35 +60,42 @@ const RespuestaPage: NextPage = () => {
       headerName: 'Nro Incidente',
       minWidth: 150,
       flex: 1,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Texto',
       headerName: 'Texto',
       minWidth: 240,
       flex: 2,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterable: false
     },
     {
       field: 'ID de hilo del incidente',
       headerName: 'ID de hilo del incidente',
       minWidth: 200,
       flex: 1,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterable: false
     },
     {
       field: 'Cabecera de correo',
       headerName: 'Cabecera de correo',
       minWidth: 200,
       flex: 1,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterable: false
     },
     {
       field: 'ID de contacto',
       headerName: 'ID de contacto',
       minWidth: 180,
       flex: 1,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterable: false
     },
     {
       field: 'Fecha de creación',
@@ -77,12 +105,18 @@ const RespuestaPage: NextPage = () => {
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación'])
+        new Date(params.row['Fecha de creación']),
+      filterOperators: getGridDateOperators().filter(
+        (operator) => operator?.value === 'is'
+      )
     }
   ]
 
   const handlePaginationChange = (param: GridPaginationModel) => {
     setPaginationModel(param)
+    setQueryOptions((prev) => {
+      return { ...prev, page: param.page, limit: param.pageSize }
+    })
   }
 
   const getRowId = (row: RespuestaType) => row._id
@@ -106,11 +140,13 @@ const RespuestaPage: NextPage = () => {
         <Box sx={{ height: '80vh', width: '100%' }}>
           <DataGrid
             columns={columns}
-            rows={respuestas}
-            rowCount={total}
+            rows={rows.respuestas}
+            rowCount={rows.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            onFilterModelChange={onFilterChange}
+            loading={isLoading}
             onPaginationModelChange={handlePaginationChange}
             initialState={{
               pagination: {

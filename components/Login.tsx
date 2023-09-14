@@ -32,7 +32,7 @@ const Login = () => {
 
   const onLogin: SubmitHandler<DataForm> = ({ email, password }) => {
     setShowError(false)
-    if (!(email === 'admin@zurich.com' && password === '123456')) {
+    if (!(email === 'admin@zurich.com' && password === '12345678')) {
       setShowError(true)
       setTimeout(() => setShowError(false), 3000)
       return
