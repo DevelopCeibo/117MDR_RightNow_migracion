@@ -15,6 +15,7 @@ import ReplyIcon from '@mui/icons-material/Reply'
 import { useIncidentes } from '../../hooks/useIncidentes'
 import type { IncidenteType } from '../../types'
 import styles from '../../styles/Incidentes.module.css'
+import CustomToolbar from '../../components/CustomToolbar'
 
 const IncidentePage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
@@ -197,6 +198,7 @@ const IncidentePage: NextPage = () => {
                 paginationModel: paginationModel
               }
             }}
+            slots={{ toolbar: CustomToolbar }}
           />
         </Box>
       </Container>

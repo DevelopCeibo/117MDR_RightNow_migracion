@@ -15,6 +15,7 @@ import ReplyIcon from '@mui/icons-material/Reply'
 import { useRespuestas } from '../../hooks/useRespuestas'
 import type { RespuestaType } from '../../types'
 import styles from '../../styles/Respuestas.module.css'
+import CustomToolbar from '../../components/CustomToolbar'
 
 const RespuestaPage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
@@ -153,6 +154,7 @@ const RespuestaPage: NextPage = () => {
                 paginationModel: paginationModel
               }
             }}
+            slots={{ toolbar: CustomToolbar }}
           />
         </Box>
       </Container>
