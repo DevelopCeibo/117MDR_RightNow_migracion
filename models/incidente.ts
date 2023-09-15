@@ -5,40 +5,92 @@ import type { IncidenteType } from '../types'
 
 const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
   //_id: ObjectId: Identificador único de documento
-  'Nro Incidente': {
+  'Nº de referencia': {
     type: String,
     required: true
   },
-  Motivo: {
+  'Actualizado por': {
     type: String,
     required: true
   },
-  'Registrado por': {
+  Asunto: {
+    type: String,
+    required: true
+  },
+  'Buzón de correo': {
+    type: String,
+    required: true
+  },
+  Cola: {
+    type: String,
+    required: true
+  },
+  'Creado por cuenta': {
+    type: String,
+    required: true
+  },
+  'Modo de Contacto': {
+    type: String,
+    required: true
+  },
+  UsuarioIntra: {
+    type: String,
+    required: true
+  },
+  'Tipo de Incidente': {
+    type: String,
+    required: true
+  },
+  'Tipo de estado': {
+    type: String,
+    required: true
+  },
+  'Tipo Cobro': {
+    type: String,
+    required: true
+  },
+  Siniestro: {
+    type: String,
+    required: true
+  },
+  Poliza: {
+    type: String,
+    required: true
+  },
+  NroCuenta: {
+    type: String,
+    required: true
+  },
+  'ID de producto': {
+    type: String
+  },
+  'ID de incidente': {
+    type: String,
+    required: true
+  },
+  'ID de disposición': {
+    type: String
+  },
+  'ID de contacto': {
+    type: String,
+    required: true
+  },
+  'ID de categoría': {
     type: String,
     required: true
   },
   Grupo: {
-    type: String,
-    required: true,
-    default: 'Sin valor'
-  },
-  'Buzón de correo': {
-    type: String,
-    required: true,
-    default: 'Sin valor'
-  },
-  Cliente: {
-    type: String,
-    required: true
-  },
-  Estado: {
-    type: String,
-    required: true
-  },
-  'Asignado a': {
     type: String
   },
-  'Sector Responsable': {
+  FechaEfecto: {
+    type: String,
+    required: true
+  },
+  'Fecha de última respuesta': {
+    type: String,
+    required: true
+  },
+  'Fecha de última actualización': {
     type: String,
     required: true
   },
@@ -46,12 +98,16 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: Date,
     required: true
   },
-  Productor: {
+  'Fecha de cierre': {
     type: String,
     required: true
   },
-  'Fecha de última actualización': {
-    type: Date,
+  Estado: {
+    type: String,
+    required: true
+  },
+  'Cuenta asignada': {
+    type: String,
     required: true
   }
 })

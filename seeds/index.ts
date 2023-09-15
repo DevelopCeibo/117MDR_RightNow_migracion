@@ -34,8 +34,6 @@ async function seeds() {
       skip_records_with_empty_values: true,
       cast: (value, context) => {
         if (context.column === 'Fecha de creación') return new Date(value)
-        if (context.column === 'Fecha de última actualización')
-          return new Date(value)
 
         return value
       }
