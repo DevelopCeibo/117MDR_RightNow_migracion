@@ -26,7 +26,7 @@ export default function handler(
 
   let query: FilterQuery<IncidenteType> = {}
   if (incidentNumber) {
-    query['Nro Incidente'] = incidentNumber
+    query['Nº de referencia'] = incidentNumber
   }
   if (creationDate) {
     const filterDate = new Date(creationDate)

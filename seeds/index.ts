@@ -28,14 +28,23 @@ async function seeds() {
       fileContent = fileContent.substring(1)
     }
 
+    const fin = 'Recuento de registros'
+    const indexFin = fileContent.lastIndexOf(fin)
+    if (indexFin !== -1) {
+      fileContent = fileContent.substring(0, indexFin)
+    }
+
     const cvsContent = parse(fileContent, {
       delimiter: [';'],
       columns: true,
       skip_records_with_empty_values: true,
       cast: (value, context) => {
-        if (context.column === 'Fecha de creación') return new Date(value)
-
-        return value
+        try {
+          if (context.column === 'Fecha de creación') return new Date(value)
+          return value
+        } catch (error: any) {
+          console.log(`Error al convertir la fecha: ${error.message}`)
+        }
       }
     })
 

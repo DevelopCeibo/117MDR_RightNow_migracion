@@ -16,7 +16,7 @@ async function seedIncidentes() {
   const cvsContent = parse(fileContent, {
     delimiter: [';'],
     columns: true,
-    skip_records_with_empty_values: true,
+    //skip_records_with_empty_values: true,
     cast: (value, context) => {
       if (context.column === 'Fecha de creación') return new Date(value)
       if (context.column === 'Fecha de última actualización')

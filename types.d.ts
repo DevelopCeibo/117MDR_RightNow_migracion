@@ -33,7 +33,7 @@ export interface IncidenteType extends Document {
 export interface RespuestaType extends Document {
   'Nro Incidente': string
   Texto: string
-  'ID de hilo del incidente': number
+  'ID de hilo del incidente': string
   'Cabecera de correo': string
   'ID de contacto': string
   'Fecha de creación': Date

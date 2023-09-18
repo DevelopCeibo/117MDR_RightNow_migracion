@@ -15,7 +15,7 @@ let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
       require: true
     },
     'ID de hilo del incidente': {
-      type: Number,
+      type: String,
       require: true
     },
     'Cabecera de correo': {

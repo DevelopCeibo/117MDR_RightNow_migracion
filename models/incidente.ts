@@ -80,7 +80,8 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     required: true
   },
   Grupo: {
-    type: String
+    type: String,
+    required: true
   },
   FechaEfecto: {
     type: String,
