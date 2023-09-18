@@ -138,7 +138,12 @@ const RespuestaPage: NextPage = () => {
             Lista de Respuestas
           </Typography>
         </div>
-        <Box sx={{ height: '80vh', width: '100%' }}>
+        <Box
+          sx={{
+            height: '80vh',
+            width: '100%',
+            '& .theme--header': { backgroundColor: 'rgba(25,118,210,0.1)' }
+          }}>
           <DataGrid
             columns={columns}
             rows={rows.respuestas}
