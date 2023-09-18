@@ -311,9 +311,12 @@ const IncidentePage: NextPage = () => {
         </div>
         <Box
           sx={{
-            height: '80vh',
+            height: '85vh',
             width: '100%',
-            '& .theme--header': { backgroundColor: 'rgba(25,118,210,0.1)' }
+            '& .theme--header': { backgroundColor: 'rgba(25, 118, 210,0.1)' },
+            '& .MuiDataGrid-toolbarContainer': {
+              backgroundColor: 'rgba(25, 118, 210,0.1)'
+            }
           }}>
           <DataGrid
             columns={columns}

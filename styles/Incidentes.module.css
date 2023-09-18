@@ -1,12 +1,13 @@
 .container {
-  max-width: 95vw;
+  max-width: 98vw;
+  padding: 0;
 }
 .title {
   margin: 0px auto;
 }
 
 .header {
-  padding: 30px;
+  padding: 30px 30px 15px;
   display: flex;
 }
 .flex {

@@ -1,9 +1,7 @@
-import { useContext } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
-import { AuthContext } from '../context/auth'
 
 const Home: NextPage = () => {
   return (
@@ -40,7 +38,7 @@ const Home: NextPage = () => {
       </main>
 
       <footer className={styles.footer}>
-        <p>footer</p>
+        <p>Zurich - Ceibo Digital</p>
       </footer>
     </div>
   )
