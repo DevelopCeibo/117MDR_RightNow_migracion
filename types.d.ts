@@ -32,9 +32,13 @@ export interface IncidenteType extends Document {
 
 export interface RespuestaType extends Document {
   'Nro Incidente': string
-  Texto: string
-  'ID de hilo del incidente': string
-  'Cabecera de correo': string
-  'ID de contacto': string
+  'Clave ajena': string
+  Cuenta: string
   'Fecha de creación': Date
+  'ID de contacto': string
+  'ID de cuenta de canal': string
+  'ID de hilo del incidente': string
+  Secuencia: string
+  Texto: string
+  'Tipo de entrada de hilo': string
 }
