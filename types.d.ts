@@ -42,3 +42,14 @@ export interface RespuestaType extends Document {
   Texto: string
   'Tipo de entrada de hilo': string
 }
+
+export interface NotaPrivadaType extends Document {
+  'Nº de referencia': string
+  'Fecha de creación': Date
+  'Fecha de cierre': string
+  'Modo de Contacto': string
+  'Jerarquía de categoría': string
+  'ID de categoría': string
+  Estado: string
+  Texto: string
+}
