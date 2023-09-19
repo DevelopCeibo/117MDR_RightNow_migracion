@@ -12,15 +12,16 @@ async function seeds() {
   console.log('files', files)
 
   for (let i = 0; i < files.length; i++) {
-    const [, modelName, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
-    console.log('modelName', modelName)
+    const [, model, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
+    const modelName = model[0].toLowerCase() + model.slice(1)
+    console.log('Accediendo al model: ', modelName)
 
-    const myModel = require(`../models/${modelName.toLowerCase()}.ts`).default
+    const myModel = require(`../models/${modelName}.ts`).default
 
-    console.log('myModel', myModel)
+    console.log('Se accedió al modelo: ', myModel)
 
     const fileToRead = `assets/${files[i]}`
-    console.log('filetoRead', fileToRead)
+    console.log('Leyendo el archivo: ', fileToRead)
 
     let fileContent = readFileSync(fileToRead, 'utf-8')
 
