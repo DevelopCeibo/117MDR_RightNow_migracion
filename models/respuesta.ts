@@ -10,7 +10,23 @@ let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
       type: String,
       require: true
     },
-    Texto: {
+    'Clave ajena': {
+      type: String,
+      require: true
+    },
+    Cuenta: {
+      type: String,
+      require: true
+    },
+    'Fecha de creación': {
+      type: Date,
+      require: true
+    },
+    'ID de contacto': {
+      type: String,
+      require: true
+    },
+    'ID de cuenta de canal': {
       type: String,
       require: true
     },
@@ -18,16 +34,16 @@ let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
       type: String,
       require: true
     },
-    'Cabecera de correo': {
+    Secuencia: {
       type: String,
       require: true
     },
-    'ID de contacto': {
+    Texto: {
       type: String,
       require: true
     },
-    'Fecha de creación': {
-      type: Date,
+    'Tipo de entrada de hilo': {
+      type: String,
       require: true
     }
   }

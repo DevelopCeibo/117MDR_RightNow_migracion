@@ -9,7 +9,8 @@ import {
   GridPaginationModel,
   GridValueGetterParams,
   getGridDateOperators,
-  getGridStringOperators
+  getGridStringOperators,
+  gridClasses
 } from '@mui/x-data-grid'
 import ReplyIcon from '@mui/icons-material/Reply'
 import { useRespuestas } from '../../hooks/useRespuestas'
@@ -67,42 +68,26 @@ const RespuestaPage: NextPage = () => {
       )
     },
     {
-      field: 'Texto',
-      headerName: 'Texto',
-      minWidth: 240,
+      field: 'Clave ajena',
+      headerName: 'Clave ajena',
+      minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de hilo del incidente',
-      headerName: 'ID de hilo del incidente',
-      minWidth: 200,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Cabecera de correo',
-      headerName: 'Cabecera de correo',
-      minWidth: 200,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'Cuenta',
+      headerName: 'Cuenta',
       minWidth: 180,
-      flex: 1,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
       field: 'Fecha de creación',
       headerName: 'Fecha de creación',
-      type: 'date',
-      minWidth: 120,
+      type: 'dateTime',
+      minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
@@ -110,6 +95,54 @@ const RespuestaPage: NextPage = () => {
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
+    },
+    {
+      field: 'ID de contacto',
+      headerName: 'ID de contacto',
+      minWidth: 130,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'ID de cuenta de canal',
+      headerName: 'ID de cuenta de canal',
+      minWidth: 170,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'ID de hilo del incidente',
+      headerName: 'ID de hilo del incidente',
+      minWidth: 170,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Secuencia',
+      headerName: 'Secuencia',
+      minWidth: 110,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Texto',
+      headerName: 'Texto',
+      minWidth: 500,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Tipo de entrada de hilo',
+      headerName: 'Tipo de entrada de hilo',
+      minWidth: 180,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
     }
   ]
 
@@ -163,6 +196,12 @@ const RespuestaPage: NextPage = () => {
               }
             }}
             slots={{ toolbar: CustomToolbar }}
+            getRowHeight={() => 'auto'}
+            sx={{
+              [`& .${gridClasses.cell}`]: {
+                py: 1
+              }
+            }}
           />
         </Box>
       </Container>
