@@ -15,28 +15,28 @@ let notaPrivadaSchema: Schema<NotaPrivadaType> =
       require: true
     },
     'Fecha de cierre': {
-      type: String,
-      require: true
+      type: String
+      //require: true
     },
     'Modo de Contacto': {
-      type: String,
-      require: true
+      type: String
+      //require: true
     },
     'Jerarquía de categoría': {
-      type: String,
-      require: true
+      type: String
+      //require: true
     },
     'ID de categoría': {
-      type: String,
-      require: true
+      type: String
+      //require: true
     },
     Estado: {
-      type: String,
-      require: true
+      type: String
+      //require: true
     },
     Texto: {
-      type: String,
-      require: true
+      type: String
+      //require: true
     }
   })
 

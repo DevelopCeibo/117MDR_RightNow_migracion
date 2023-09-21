@@ -28,6 +28,7 @@ export interface IncidenteType extends Document {
   'Fecha de cierre': string
   Estado: string
   'Cuenta asignada'?: string
+  'ID de organización'?: string
 }
 
 export interface RespuestaType extends Document {
@@ -41,6 +42,7 @@ export interface RespuestaType extends Document {
   Secuencia: string
   Texto: string
   'Tipo de entrada de hilo': string
+  Peso: string
 }
 
 export interface NotaPrivadaType extends Document {
