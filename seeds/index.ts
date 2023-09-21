@@ -5,14 +5,17 @@ import { connectDB, disconectDB } from '../db'
 async function seeds() {
   await connectDB()
 
-  const files = readdirSync('./assets').filter((file) => file.endsWith('.csv'))
+  const files = readdirSync('./assets').filter(
+    (file) => file.startsWith('MIGRA_') && file.endsWith('.csv')
+  )
 
   const insertPromise: Promise<any>[] = []
 
   console.log('files', files)
 
   for (let i = 0; i < files.length; i++) {
-    const [, model, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
+    //const [, model, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
+    const [, model, ...rest] = files[i].match(/MIGRA_(.*).csv/) || []
     const modelName = model[0].toLowerCase() + model.slice(1)
     console.log('Accediendo al model: ', modelName)
 
@@ -36,12 +39,18 @@ async function seeds() {
     }
 
     const cvsContent = parse(fileContent, {
-      delimiter: [';'],
+      delimiter: [','],
       columns: true,
       skip_records_with_empty_values: true,
       cast: (value, context) => {
         try {
-          if (context.column === 'Fecha de creación') return new Date(value)
+          if (context.column.toString().includes('Fecha')) {
+            value = sinComillasSimples(value)
+          }
+          if (context.column === 'Fecha de creación') {
+            return new Date(value)
+          }
+
           return value
         } catch (error: any) {
           console.log(`Error al convertir la fecha: ${error.message}`)
@@ -74,3 +83,9 @@ async function seeds() {
 }
 
 seeds()
+
+const sinComillasSimples = (text: string): string => {
+  return text[0] === "'" && text[text.length - 1] === "'"
+    ? text.slice(1, -1)
+    : text
+}

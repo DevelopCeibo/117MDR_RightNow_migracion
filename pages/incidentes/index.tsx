@@ -281,6 +281,14 @@ const IncidentePage: NextPage = () => {
       flex: 1.1,
       headerClassName: 'theme--header',
       filterable: false
+    },
+    {
+      field: 'ID de organización',
+      headerName: 'ID de organización',
+      minWidth: 130,
+      flex: 1.1,
+      headerClassName: 'theme--header',
+      filterable: false
     }
   ]
 

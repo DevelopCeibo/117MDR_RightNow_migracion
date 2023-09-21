@@ -143,6 +143,14 @@ const RespuestaPage: NextPage = () => {
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
+    },
+    {
+      field: 'Peso',
+      headerName: 'Peso',
+      minWidth: 130,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
     }
   ]
 
