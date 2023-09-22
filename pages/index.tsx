@@ -30,8 +30,13 @@ const Home: NextPage = () => {
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
-          <Link href='./incidentes' className={styles.card}>
-            <h2>Tabla de Incidentes</h2>
+          <Link href='./contactos' className={styles.card}>
+            <h2>Tabla de Contactos</h2>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
+          </Link>
+
+          <Link href='./logActividades' className={styles.card}>
+            <h2>Tabla de Log Actividad</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
         </div>
