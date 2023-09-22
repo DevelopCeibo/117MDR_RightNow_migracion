@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchData } from '../axios/fetchData'
-import { IncidenteType } from '../types'
+import { OrganizacionType } from '../types'
 
 type QueryOptions = {
   page: number
@@ -11,19 +11,19 @@ type QueryOptions = {
 
 type RowType = {
   total: number
-  incidentes: IncidenteType[]
+  organizaciones: OrganizacionType[]
 }
 
-export function useIncidentes(queryOptions: QueryOptions) {
+export function useOrganizacion(queryOptions: QueryOptions) {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [rows, setRows] = useState<RowType>({ total: 0, incidentes: [] })
+  const [rows, setRows] = useState<RowType>({ total: 0, organizaciones: [] })
 
   useEffect(() => {
     setIsLoading(true)
     fetchData(
       queryOptions.page,
       queryOptions.limit,
-      'incidentes',
+      'organizaciones',
       queryOptions.incidentNumber,
       queryOptions.creationDate
     )

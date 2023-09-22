@@ -12,7 +12,7 @@ import {
   getGridStringOperators
 } from '@mui/x-data-grid'
 import ReplyIcon from '@mui/icons-material/Reply'
-import { useIncidentes } from '../../hooks/useIncidentes'
+import { useIncidentes } from '../../hooks'
 import type { IncidenteType } from '../../types'
 import styles from '../../styles/Incidentes.module.css'
 import CustomToolbar from '../../components/CustomToolbar'
