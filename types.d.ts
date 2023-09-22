@@ -113,3 +113,18 @@ export interface LogActividadType extends Document {
   Inicial: string
   'Dirección IP del cliente': string
 }
+
+export interface TareaType extends Document {
+  Asignado: string
+  'Fecha de creación': Date
+  'Fecha de inicio': string
+  'Fecha de última actualización': string
+  'Fecha de vencimiento': string
+  Herencia: string
+  'ID de contacto': string
+  'ID de incidente': string
+  Motivo: string
+  Nombre: string
+  Notas: string
+  'Plantilla de tarea': string
+}
