@@ -13,8 +13,8 @@ import {
   gridClasses
 } from '@mui/x-data-grid'
 import ReplyIcon from '@mui/icons-material/Reply'
-import { useRespuestas } from '../../hooks'
-import type { RespuestaType } from '../../types'
+import { useOrganizacion } from '../../hooks'
+import type { OrganizacionType } from '../../types'
 import styles from '../../styles/Respuestas.module.css'
 import CustomToolbar from '../../components/CustomToolbar'
 
@@ -50,37 +50,22 @@ const RespuestaPage: NextPage = () => {
 
   type RowType = {
     total: number
-    respuestas: RespuestaType[]
+    organizaciones: OrganizacionType[]
   }
 
   const { isLoading, rows }: { isLoading: boolean; rows: RowType } =
-    useRespuestas(queryOptions)
+    useOrganizacion(queryOptions)
 
   const columns = [
     {
-      field: 'Nro Incidente',
-      headerName: 'Nro Incidente',
-      minWidth: 150,
+      field: 'Estado',
+      headerName: 'Estado',
+      minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
       filterOperators: getGridStringOperators().filter(
         (operator) => operator?.value === 'equals'
-      )
-    },
-    {
-      field: 'Clave ajena',
-      headerName: 'Clave ajena',
-      minWidth: 130,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Cuenta',
-      headerName: 'Cuenta',
-      minWidth: 180,
-      flex: 2,
-      headerClassName: 'theme--header',
+      ),
       filterable: false
     },
     {
@@ -97,57 +82,41 @@ const RespuestaPage: NextPage = () => {
       )
     },
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
-      minWidth: 130,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de cuenta de canal',
-      headerName: 'ID de cuenta de canal',
-      minWidth: 170,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de hilo del incidente',
-      headerName: 'ID de hilo del incidente',
-      minWidth: 170,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Secuencia',
-      headerName: 'Secuencia',
-      minWidth: 110,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Texto',
-      headerName: 'Texto',
-      minWidth: 500,
-      flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Tipo de entrada de hilo',
-      headerName: 'Tipo de entrada de hilo',
-      minWidth: 180,
+      field: 'Fecha de última actualización',
+      headerName: 'Fecha de última actualización',
+      minWidth: 210,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Peso',
-      headerName: 'Peso',
-      minWidth: 130,
+      field: 'ID de organización',
+      headerName: 'ID de organización',
+      minWidth: 150,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Jerarquía de organización - Nivel 1',
+      headerName: 'Jerarquía de organización - Nivel 1',
+      minWidth: 280,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Nombre de organización',
+      headerName: 'Nombre de organización',
+      minWidth: 280,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Vendedor',
+      headerName: 'Vendedor',
+      minWidth: 170,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -161,12 +130,12 @@ const RespuestaPage: NextPage = () => {
     })
   }
 
-  const getRowId = (row: RespuestaType) => row._id
+  const getRowId = (row: OrganizacionType) => row._id
 
   return (
     <>
       <Head>
-        <title>Tabla de Respuestas</title>
+        <title>Tabla de Organizaciones</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Container className={styles.container} maxWidth='xl'>
@@ -176,7 +145,7 @@ const RespuestaPage: NextPage = () => {
             <Typography variant='h6'>Home</Typography>
           </Link>
           <Typography variant='h3' className={styles.title} margin='auto'>
-            Lista de Respuestas
+            Lista de Organizaciones
           </Typography>
         </div>
         <Box
@@ -190,7 +159,7 @@ const RespuestaPage: NextPage = () => {
           }}>
           <DataGrid
             columns={columns}
-            rows={rows.respuestas}
+            rows={rows.organizaciones}
             rowCount={rows.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
@@ -204,12 +173,6 @@ const RespuestaPage: NextPage = () => {
               }
             }}
             slots={{ toolbar: CustomToolbar }}
-            getRowHeight={() => 'auto'}
-            sx={{
-              [`& .${gridClasses.cell}`]: {
-                py: 1
-              }
-            }}
           />
         </Box>
       </Container>

@@ -128,3 +128,13 @@ export interface TareaType extends Document {
   Notas: string
   'Plantilla de tarea': string
 }
+
+export interface OrganizacionType extends Document {
+  Estado: string
+  'Fecha de creación': Date
+  'Fecha de última actualización': string
+  'ID de organización': string
+  'Jerarquía de organización - Nivel 1': string
+  'Nombre de organización': string
+  Vendedor: string
+}
