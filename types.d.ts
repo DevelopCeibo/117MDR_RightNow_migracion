@@ -138,3 +138,38 @@ export interface OrganizacionType extends Document {
   'Nombre de organización': string
   Vendedor: string
 }
+
+export interface PolizaType extends Document {
+  'Acreedor Prendario/Hipotecario': string
+  'Actualizado por': string
+  Bolso_Compra: string
+  'Canal de cobro': string
+  CodigoProductor: string
+  Compaña: string
+  CondicionDeIVA: string
+  Contact: string
+  'Creado por': string
+  'E-Cupones': string
+  'E-Póliza': string
+  Estado: string
+  'Fecha de creación': Date
+  'Fecha De Emisión': string
+  'Fecha de última actualización': string
+  FechaSiniestro: string
+  'Grupo de afinidad': string
+  'Grupo Organizador': string
+  ID: string
+  'Numero de cuenta': string
+  'Numero de Cuenta Enmascarado': string
+  Organizador: string
+  Póliza: string
+  Producto: string
+  Productor: string
+  SubRamo: string
+  Sucursal: string
+  'Tipo de cuenta': string
+  TomadorRiesgo: string
+  Vendedor: string
+  'Vigencia Desde': string
+  'Vigencia Hasta'
+}
