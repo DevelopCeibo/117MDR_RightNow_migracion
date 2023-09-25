@@ -237,3 +237,9 @@ export interface SiniestroType extends Document {
   Responsable: string
   'Tomador / Riesgo': string
 }
+
+export interface TipoIncidenteType extends Document {
+  Descripción: string
+  DisplayOrder: string
+  ID: string
+}
