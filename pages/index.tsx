@@ -49,6 +49,11 @@ const Home: NextPage = () => {
             <h2>Tabla de Organizaciones</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
+
+          <Link href='./polizas' className={styles.card}>
+            <h2>Tabla de Polizas</h2>
+            <p>Ingrese aquí para inspeccionar la tabla</p>
+          </Link>
         </div>
       </main>
 
