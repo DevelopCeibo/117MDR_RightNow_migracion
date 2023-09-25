@@ -323,7 +323,7 @@ const PolizaPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Tabla de Contactos</title>
+        <title>Tabla de Polizas</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Container className={styles.container} maxWidth='xl'>
@@ -333,7 +333,7 @@ const PolizaPage: NextPage = () => {
             <Typography variant='h6'>Home</Typography>
           </Link>
           <Typography variant='h3' className={styles.title} margin='auto'>
-            Lista de Contactos
+            Lista de Polizas
           </Typography>
         </div>
         <Box
