@@ -200,3 +200,40 @@ export interface RiesgoType extends Document {
   Poliza: string
   TomadorRiesgo: string
 }
+
+export interface SiniestroType extends Document {
+  'Apellido Conductor': string
+  'Apellido y Nombre': string
+  Calle: string
+  Causa: string
+  'Codigo de Productor': string
+  'Código Postal': string
+  'Código Producto': string
+  Comiseria: string
+  Contact: string
+  'Daños Propios': string
+  'Daños Terceros': string
+  DocumentoConductor: string
+  Estado: string
+  'Fecha de creación': Date
+  'Fecha De Siniestro': string
+  'Fecha de última actualización': string
+  Fecha_Siniestro: string
+  Hora: string
+  ID: string
+  'Lesiones Terceros': string
+  Localidad: string
+  'Nombre Conductor': string
+  Numero: string
+  'Numero de Documento': string
+  'Número de Siniestro': string
+  'Numero de Siniestro': string
+  Oficina: string
+  País: string
+  Poliza: string
+  Producto: string
+  Productor: string
+  Provincia: string
+  Responsable: string
+  'Tomador / Riesgo': string
+}
