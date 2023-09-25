@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
-import type { NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
+import Head from 'next/head'
+import type { NextPage } from 'next'
 import { Box, Container, Typography } from '@mui/material'
 import {
   DataGrid,
@@ -9,15 +9,16 @@ import {
   GridPaginationModel,
   GridValueGetterParams,
   getGridDateOperators,
-  getGridStringOperators
+  getGridStringOperators,
+  gridClasses
 } from '@mui/x-data-grid'
 import ReplyIcon from '@mui/icons-material/Reply'
-import { useIncidentes } from '../../hooks'
-import type { IncidenteType } from '../../types'
-import styles from '../../styles/Incidentes.module.css'
+import { useArchivo } from '../../hooks'
+import type { ArchivoType } from '../../types'
+import styles from '../../styles/NotasPrivadas.module.css'
 import CustomToolbar from '../../components/CustomToolbar'
 
-const IncidentePage: NextPage = () => {
+const ArchivoPage: NextPage = () => {
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 25
@@ -49,19 +50,17 @@ const IncidentePage: NextPage = () => {
 
   type RowType = {
     total: number
-    incidentes: IncidenteType[]
+    archivos: ArchivoType[]
   }
 
   const { isLoading, rows }: { isLoading: boolean; rows: RowType } =
-    useIncidentes(queryOptions)
+    useArchivo(queryOptions)
 
   const columns = [
     {
       field: 'Nº de referencia',
       headerName: 'Nº de referencia',
-      minWidth: 150,
-      maxWidth: 300,
-      width: 150,
+      minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterOperators: getGridStringOperators().filter(
@@ -69,178 +68,34 @@ const IncidentePage: NextPage = () => {
       )
     },
     {
-      field: 'Actualizado por',
-      headerName: 'Actualizado por',
-      minWidth: 180,
-      flex: 1.4,
+      field: 'Asociación de tabla',
+      headerName: 'Asociación de tabla',
+      minWidth: 200,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Asunto',
-      headerName: 'Asunto',
-      minWidth: 250,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Buzón de correo',
-      headerName: 'Buzón de correo',
-      minWidth: 250,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Cola',
-      headerName: 'Cola',
-      minWidth: 210,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Creado por cuenta',
-      headerName: 'Creado por cuenta',
-      minWidth: 210,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Modo de Contacto',
-      headerName: 'Modo de Contacto',
-      minWidth: 180,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'UsuarioIntra',
-      headerName: 'UsuarioIntra',
-      minWidth: 150,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Tipo de Incidente',
-      headerName: 'Tipo de Incidente',
+      field: 'Clave ajena',
+      headerName: 'Clave ajena',
       minWidth: 130,
-      flex: 1,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Tipo de estado',
-      headerName: 'Tipo de estado',
+      field: 'Desactivado',
+      headerName: 'Desactivado',
+      minWidth: 110,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Descripción',
+      headerName: 'Descripción',
       minWidth: 130,
-      flex: 0.9,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Tipo Cobro',
-      headerName: 'Tipo Cobro',
-      minWidth: 130,
-      flex: 0.6,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Siniestro',
-      headerName: 'Siniestro',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Poliza',
-      headerName: 'Poliza',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'NroCuenta',
-      headerName: 'NroCuenta',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de producto',
-      headerName: 'ID de producto',
-      minWidth: 230,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de incidente',
-      headerName: 'ID de incidente',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de disposición',
-      headerName: 'ID de disposición',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
-      minWidth: 110,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'ID de categoría',
-      headerName: 'ID de categoría',
-      minWidth: 210,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Grupo',
-      headerName: 'Grupo',
-      minWidth: 90,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'FechaEfecto',
-      headerName: 'FechaEfecto',
-      minWidth: 180,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Fecha de última respuesta',
-      headerName: 'Fecha de última respuesta',
-      minWidth: 180,
-      flex: 1,
-      headerClassName: 'theme--header',
-      filterable: false
-    },
-    {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
-      minWidth: 180,
-      flex: 1,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
@@ -248,7 +103,7 @@ const IncidentePage: NextPage = () => {
       field: 'Fecha de creación',
       headerName: 'Fecha de creación',
       type: 'dateTime',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
@@ -258,34 +113,91 @@ const IncidentePage: NextPage = () => {
       )
     },
     {
-      field: 'Fecha de cierre',
-      headerName: 'Fecha de cierre',
+      field: 'Fecha de última actualización',
+      headerName: 'Fecha de última actualización',
+      minWidth: 210,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+
+    {
+      field: 'ID de archivo anexo',
+      headerName: 'ID de archivo anexo',
       minWidth: 180,
-      flex: 1,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Estado',
-      headerName: 'Estado',
-      minWidth: 110,
-      flex: 1.1,
+      field: 'Índice de palabras clave',
+      headerName: 'Índice de palabras clave',
+      minWidth: 180,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Cuenta asignada',
-      headerName: 'Cuenta asignada',
+      field: 'Nombre',
+      headerName: 'Nombre',
       minWidth: 130,
-      flex: 1.1,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de organización',
-      headerName: 'ID de organización',
-      minWidth: 130,
-      flex: 1.1,
+      field: 'Nombre de archivo de usuario',
+      headerName: 'Nombre de archivo de usuario',
+      minWidth: 210,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Nombre de archivo local',
+      headerName: 'Nombre de archivo local',
+      minWidth: 300,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Privado',
+      headerName: 'Privado',
+      minWidth: 280,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Secuencia',
+      headerName: 'Secuencia',
+      minWidth: 170,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Tamaño',
+      headerName: 'Tamaño',
+      minWidth: 150,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Tipo',
+      headerName: 'Tipo',
+      minWidth: 170,
+      flex: 2,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Tipo de contenido',
+      headerName: 'Tipo de contenido',
+      minWidth: 170,
+      flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     }
@@ -298,12 +210,12 @@ const IncidentePage: NextPage = () => {
     })
   }
 
-  const getRowId = (row: IncidenteType) => row._id
+  const getRowId = (row: ArchivoType) => row._id
 
   return (
     <>
       <Head>
-        <title>Tabla de Incidentes</title>
+        <title>Tabla de Archivos</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Container className={styles.container} maxWidth='xl'>
@@ -313,7 +225,7 @@ const IncidentePage: NextPage = () => {
             <Typography variant='h6'>Home</Typography>
           </Link>
           <Typography variant='h3' className={styles.title} margin='auto'>
-            Lista de Incidentes
+            Lista de Archivos
           </Typography>
         </div>
         <Box
@@ -327,8 +239,7 @@ const IncidentePage: NextPage = () => {
           }}>
           <DataGrid
             columns={columns}
-            rows={rows?.incidentes} //rows={incidentes}
-            filterMode='server'
+            rows={rows?.archivos}
             rowCount={rows?.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
@@ -342,6 +253,12 @@ const IncidentePage: NextPage = () => {
               }
             }}
             slots={{ toolbar: CustomToolbar }}
+            getRowHeight={() => 'auto'}
+            sx={{
+              [`& .${gridClasses.cell}`]: {
+                py: 1
+              }
+            }}
           />
         </Box>
       </Container>
@@ -349,4 +266,4 @@ const IncidentePage: NextPage = () => {
   )
 }
 
-export default IncidentePage
+export default ArchivoPage
