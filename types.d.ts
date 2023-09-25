@@ -173,3 +173,15 @@ export interface PolizaType extends Document {
   'Vigencia Desde': string
   'Vigencia Hasta'
 }
+export interface ProductorType extends Document {
+  Cliensec: string
+  CodigoCompleto: string
+  DniCuit: string
+  EjecutivoCuenta: string
+  Gerente: string
+  GrupoOrganizador: string
+  ID: string
+  Nombre: string
+  Segmentacion: string
+  UnidadDeNegocio: string
+}
