@@ -243,3 +243,23 @@ export interface TipoIncidenteType extends Document {
   DisplayOrder: string
   ID: string
 }
+
+export interface ArchivoType extends Document {
+  'Nº de referencia': string
+  'Asociación de tabla': string
+  'Clave ajena': string
+  Desactivado: string
+  Descripción: string
+  'Fecha de creación': Date
+  'Fecha de última actualización': string
+  'ID de archivo anexo': string
+  'Índice de palabras clave': string
+  Nombre: string
+  'Nombre de archivo de usuario': string
+  'Nombre de archivo local': string
+  Privado: string
+  Secuencia: string
+  Tamaño: string
+  Tipo: string
+  'Tipo de contenido': string
+}
