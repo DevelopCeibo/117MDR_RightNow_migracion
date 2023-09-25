@@ -185,3 +185,18 @@ export interface ProductorType extends Document {
   Segmentacion: string
   UnidadDeNegocio: string
 }
+
+export interface RiesgoType extends Document {
+  Contact: string
+  'Detalle de Cobertura': string
+  'Detalle de Riesgo': string
+  Estado: string
+  'Fecha de creación': Date
+  'Fecha de última actualización': string
+  ID: string
+  IdTipoRiesgo: string
+  NumeroPoliza: string
+  Patente: string
+  Poliza: string
+  TomadorRiesgo: string
+}
