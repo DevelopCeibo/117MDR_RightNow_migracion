@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../../components/Login'
 import { Container } from '@mui/material'
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/Login.module.css'
 
 const LoginPage = () => {
   return (

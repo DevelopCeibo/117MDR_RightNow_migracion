@@ -43,9 +43,20 @@ const Login = () => {
     return
   }
   return (
-    <Container maxWidth='md' sx={{ display: 'grid', placeItems: 'center' }}>
+    <Container
+      maxWidth='md'
+      sx={{
+        display: 'grid',
+        placeItems: 'center'
+      }}>
       <form onSubmit={handleSubmit(onLogin)}>
-        <Box sx={{ width: 350, padding: '10px 20px' }}>
+        <Box
+          sx={{
+            width: 350,
+            padding: '60px 40px',
+            border: '2px solid rgba(25, 118, 210, 0.5)',
+            borderRadius: '10px'
+          }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant='h4' component='h1'>
