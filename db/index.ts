@@ -5,23 +5,47 @@ import dotenv from 'dotenv'
 dotenv.config()
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/zurichdb'
 
+/**
+ * 0 = disconnected
+ * 1 = connected
+ * 2 = connecting
+ * 3 = disconnecting
+ */
+const mongoConnection = {
+  isConnected: 0
+}
+
 export const connectDB = async () => {
-  try {
-    await mongoose.connect(MONGODB_URI)
-    console.log('Base de datos conectada')
-  } catch (error: any) {
-    console.error('Error al conectar a la base de datos:', error.message)
-    process.exit(1) // Termina el proceso de la aplicación si no se puede conectar a la base de datos
+  if (mongoConnection.isConnected) {
+    console.log('Ya estabamos conectados')
+    return
   }
+
+  if (mongoose.connections.length > 0) {
+    mongoConnection.isConnected = mongoose.connections[0].readyState
+
+    if (mongoConnection.isConnected === 1) {
+      console.log('Usando conexión anterior')
+      return
+    }
+
+    await mongoose.disconnect()
+  }
+
+  await mongoose.connect(MONGODB_URI)
+  mongoConnection.isConnected = 1
+  console.log('Conectado a Base de Datos!')
 }
 
 export const disconectDB = async () => {
-  try {
-    await mongoose.disconnect()
-    console.log('Desconectado de la base de datos')
-  } catch (error: any) {
-    console.error('Error al desconectar de la base de datos:', error.message)
-  }
+  if (process.env.NODE_ENV === 'development') return
+
+  if (mongoConnection.isConnected === 0) return
+
+  await mongoose.disconnect()
+  mongoConnection.isConnected = 0
+
+  console.log('Desconectado de MongoDB')
 }
 
 export default connectDB
