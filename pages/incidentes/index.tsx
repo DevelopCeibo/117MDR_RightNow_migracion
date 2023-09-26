@@ -9,7 +9,8 @@ import {
   GridPaginationModel,
   GridValueGetterParams,
   getGridDateOperators,
-  getGridStringOperators
+  getGridStringOperators,
+  gridClasses
 } from '@mui/x-data-grid'
 import ReplyIcon from '@mui/icons-material/Reply'
 import { useIncidentes } from '../../hooks'
@@ -79,7 +80,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'Asunto',
       headerName: 'Asunto',
-      minWidth: 250,
+      minWidth: 400,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -87,7 +88,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'Buzón de correo',
       headerName: 'Buzón de correo',
-      minWidth: 250,
+      minWidth: 280,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -223,7 +224,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'FechaEfecto',
       headerName: 'FechaEfecto',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -231,7 +232,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'Fecha de última respuesta',
       headerName: 'Fecha de última respuesta',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -239,7 +240,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'Fecha de última actualización',
       headerName: 'Fecha de última actualización',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -248,7 +249,7 @@ const IncidentePage: NextPage = () => {
       field: 'Fecha de creación',
       headerName: 'Fecha de creación',
       type: 'dateTime',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
@@ -260,7 +261,7 @@ const IncidentePage: NextPage = () => {
     {
       field: 'Fecha de cierre',
       headerName: 'Fecha de cierre',
-      minWidth: 180,
+      minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -342,6 +343,12 @@ const IncidentePage: NextPage = () => {
               }
             }}
             slots={{ toolbar: CustomToolbar }}
+            getRowHeight={() => 'auto'}
+            sx={{
+              [`& .${gridClasses.cell}`]: {
+                py: 1
+              }
+            }}
           />
         </Box>
       </Container>

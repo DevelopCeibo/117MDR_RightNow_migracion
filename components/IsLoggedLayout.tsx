@@ -10,13 +10,15 @@ const IsLoggedLayout: FC<Props> = ({ children }) => {
   const { isLogged } = useContext(AuthContext)
   const router = useRouter()
 
+  const path = router.pathname
+
   useEffect(() => {
     if (!isLogged) {
       router.push('/login')
     }
   }, [isLogged])
 
-  return <>{children}</>
+  return path === '/login' || isLogged ? <>{children}</> : null
 }
 
 export default IsLoggedLayout

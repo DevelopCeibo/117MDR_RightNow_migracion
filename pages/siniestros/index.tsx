@@ -35,7 +35,7 @@ const SiniestroPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'Número de Siniestro'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha de creación'
@@ -260,8 +260,7 @@ const SiniestroPage: NextPage = () => {
       headerName: 'Número de Siniestro',
       minWidth: 180,
       flex: 2,
-      headerClassName: 'theme--header',
-      filterable: false
+      headerClassName: 'theme--header'
     },
     {
       field: 'Numero de Siniestro',

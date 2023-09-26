@@ -139,7 +139,7 @@ const ContactoPage: NextPage = () => {
     {
       field: 'Dirección de correo electrónico',
       headerName: 'Dirección de correo electrónico',
-      minWidth: 230,
+      minWidth: 280,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false

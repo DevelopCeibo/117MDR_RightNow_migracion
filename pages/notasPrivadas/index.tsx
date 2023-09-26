@@ -124,7 +124,7 @@ const NotasPrivadasPage: NextPage = () => {
     {
       field: 'Texto',
       headerName: 'Texto',
-      minWidth: 500,
+      minWidth: 750,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
