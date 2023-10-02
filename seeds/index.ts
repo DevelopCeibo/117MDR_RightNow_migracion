@@ -3,6 +3,9 @@ import { parse } from 'csv-parse/sync'
 import { connectDB, disconectDB } from '../db'
 
 async function seeds() {
+  const inicio = new Date()
+  console.log('Hora de inicio', inicio)
+
   await connectDB()
 
   const files = readdirSync('./assets').filter(
@@ -14,8 +17,8 @@ async function seeds() {
   console.log('files', files)
 
   for (let i = 0; i < files.length; i++) {
-    //const [, model, ...rest] = files[i].match(/Migracion_CT_(.*).csv/) || []
-    const [, model, ...rest] = files[i].match(/MIGRA_(.*).csv/) || []
+    //const [, model, ...rest] = files[i].match(/MIGRA_(.*)_v\d\d.csv/) || []
+    const [, model, ...rest] = files[i].match(/MIGRA_(.*)_v\d{2,3}.csv/) || []
     const modelName = model[0].toLowerCase() + model.slice(1)
     console.log('Accediendo al model: ', modelName)
 
@@ -59,7 +62,7 @@ async function seeds() {
     })
 
     insertPromise.push(
-      myModel
+      await myModel
         .insertMany(cvsContent)
         .then(() => {
           console.log(
@@ -75,6 +78,8 @@ async function seeds() {
         'Todos los datos fueron almacenados en la base de datos exitosamente'
       )
       // Ahora podemos cerrar la conexión a la base de datos
+      const fin = new Date()
+      console.log('Hora de inicio', fin)
       disconectDB()
     })
     .catch((error: any) => {
