@@ -21,8 +21,10 @@ async function seeds() {
     const [, model, ...rest] = files[i].match(/MIGRA_(.*)_v\d{2,3}.csv/) || []
     const modelName = model[0].toLowerCase() + model.slice(1)
     console.log('Accediendo al model: ', modelName)
-
-    const myModel = require(`../models/${modelName}.ts`).default
+    const environment = process.env.NODE_ENV
+    const extension = environment === 'production' ? '.js' : '.ts'
+    const myModel = require(`../models/${modelName}${extension}`).default
+    //const myModel = require(`../models/${modelName}.js`).default
 
     console.log('Se accedió al modelo: ', myModel)
 

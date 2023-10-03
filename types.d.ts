@@ -171,7 +171,7 @@ export interface PolizaType extends Document {
   TomadorRiesgo: string
   Vendedor: string
   'Vigencia Desde': string
-  'Vigencia Hasta'
+  'Vigencia Hasta': string
 }
 export interface ProductorType extends Document {
   Cliensec: string
