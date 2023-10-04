@@ -12,9 +12,7 @@ services:
 
   app:
     container_name: zurich_app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 117mdr_rightnow_migracion_app
     ports:
       - 3000:3000
     environment:
