@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </Link>
 
           <Link href='./respuestas' className={styles.card}>
-            <h2>Tabla de Repuestas</h2>
+            <h2>Tabla de Respuestas</h2>
             <p>Ingrese aquí para inspeccionar la tabla</p>
           </Link>
 
