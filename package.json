@@ -9,7 +9,7 @@
     "start:local": "next start",
     "lint": "next lint",
     "seed:incidentes": "ts-node ./seeds/incidente.ts",
-    "seed:all": "ts-node ./seeds/index.ts",
+    "seed:local": "ts-node ./seeds/index.ts",
     "seed": "node ./seeds/index.js"
   },
   "dependencies": {
