@@ -39,6 +39,8 @@ Este comando descargará la imagen del registry y una vez completa la descarga, 
 
    [http://localhost:3000/](http://localhost:3000/)
 
+Consulte al administrador por credenciales de logeo a la aplicacion
+
 5. Finalmente, si necesitas detener la aplicación, puedes hacerlo ejecutando el siguiente comando en tu terminal:
 
 ```bash
