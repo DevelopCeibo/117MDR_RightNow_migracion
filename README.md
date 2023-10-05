@@ -47,7 +47,7 @@ Consulte al administrador por credenciales de logeo a la aplicacion
   docker-compose down
 ```
 
-Este comando dentendrá la aplicación, pero los datos en la base de datos persistirán. La próxima vez que intentes acceder a la aplicación solo debes ejecutar los pasos 4 y 5 de este instructivo.
+Este comando detendrá la aplicación, pero los datos en la base de datos persistirán. La próxima vez que intentes acceder a la aplicación solo debes ejecutar los pasos 4 y 5 de este instructivo.
 
 ## Notas adicionales
 
