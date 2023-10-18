@@ -1,4 +1,5 @@
-import { readdirSync, readFileSync } from 'fs'
+import { readdirSync, readFileSync, Dirent } from 'fs'
+import { join, basename } from 'path'
 import { parse } from 'csv-parse/sync'
 import { connectDB, disconectDB } from '../db'
 
@@ -8,8 +9,9 @@ async function seeds() {
 
   await connectDB()
 
-  const files = readdirSync('./assets').filter(
-    (file) => file.startsWith('MIGRA_') && file.endsWith('.csv')
+  const files = await getAllFiles('./assets').filter(
+    (file) =>
+      basename(file).startsWith('MIGRA_') && basename(file).endsWith('.csv')
   )
 
   const insertPromise: Promise<any>[] = []
@@ -18,7 +20,8 @@ async function seeds() {
 
   for (let i = 0; i < files.length; i++) {
     //const [, model, ...rest] = files[i].match(/MIGRA_(.*)_v\d\d.csv/) || []
-    const [, model, ...rest] = files[i].match(/MIGRA_(.*)_v\d{2,3}.csv/) || []
+    const [, model, ...rest] =
+      basename(files[i]).match(/MIGRA_(.*)_v\d{2,4}.csv/) || []
     const modelName = model[0].toLowerCase() + model.slice(1)
     console.log('Accediendo al model: ', modelName)
     const environment = process.env.NODE_ENV
@@ -28,7 +31,7 @@ async function seeds() {
 
     console.log('Se accedió al modelo: ', myModel)
 
-    const fileToRead = `assets/${files[i]}`
+    const fileToRead = files[i]
     console.log('Leyendo el archivo: ', fileToRead)
 
     let fileContent = readFileSync(fileToRead, 'utf-8')
@@ -44,7 +47,7 @@ async function seeds() {
     }
 
     const cvsContent = parse(fileContent, {
-      delimiter: [','],
+      delimiter: ['|'],
       columns: true,
       skip_records_with_empty_values: true,
       cast: (value, context) => {
@@ -95,4 +98,19 @@ const sinComillasSimples = (text: string): string => {
   return text[0] === "'" && text[text.length - 1] === "'"
     ? text.slice(1, -1)
     : text
+}
+
+function getAllFiles(dirPath: string): string[] {
+  return readdirSync(dirPath, { withFileTypes: true }).reduce(
+    (filePaths: string[], dirent: Dirent): string[] => {
+      const entryPath = join(dirPath, dirent.name)
+      if (dirent.isFile()) {
+        return [...filePaths, entryPath]
+      } else if (dirent.isDirectory()) {
+        return [...filePaths, ...getAllFiles(entryPath)]
+      }
+      return filePaths
+    },
+    []
+  )
 }

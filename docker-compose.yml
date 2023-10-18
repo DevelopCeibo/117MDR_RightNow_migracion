@@ -12,7 +12,7 @@ services:
 
   app:
     container_name: zurich_app
-    image: ingram.azurecr.io/117mdr_rightnow_migracion_app
+    image: sergiogenes/117mdr_rightnow_migracion_app
     ports:
       - 3000:3000
     environment:
