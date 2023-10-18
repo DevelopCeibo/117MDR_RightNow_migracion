@@ -6,10 +6,10 @@ import type { SiniestroType } from '../types'
 let siniestroSchema: Schema<SiniestroType> = new mongoose.Schema<SiniestroType>(
   {
     //_id: ObjectId: Identificador único de documento
-    'Apellido Conductor': {
+    Apellido_Conductor: {
       type: String
     },
-    'Apellido y Nombre': {
+    Apellido_y_Nombre: {
       type: String
     },
     Calle: {
@@ -18,44 +18,44 @@ let siniestroSchema: Schema<SiniestroType> = new mongoose.Schema<SiniestroType>(
     Causa: {
       type: String
     },
-    'Codigo de Productor': {
+    Codigo_de_Productor: {
       type: String
     },
-    'Código Postal': {
+    Codigo_Postal: {
       type: String
     },
-    'Código Producto': {
+    Codigo_Producto: {
       type: String
     },
     Comiseria: {
       type: String
     },
-    Contact: {
+    Contacto: {
       type: String
     },
-    'Daños Propios': {
+    Danios_Propios: {
       type: String
     },
-    'Daños Terceros': {
+    Danios_Terceros: {
       type: String
     },
-    DocumentoConductor: {
+    Documento_Conductor: {
       type: String
     },
     Estado: {
       type: String
     },
-    'Fecha de creación': {
+    Fecha_de_creacion: {
       type: Date,
       require: true
     },
-    'Fecha De Siniestro': {
+    Fecha_de_siniestro: {
       type: String
     },
-    'Fecha de última actualización': {
+    Fecha_de_ultima_actualizacion: {
       type: String
     },
-    Fecha_Siniestro: {
+    Fecha_siniestro: {
       type: String
     },
     Hora: {
@@ -64,31 +64,31 @@ let siniestroSchema: Schema<SiniestroType> = new mongoose.Schema<SiniestroType>(
     ID: {
       type: String
     },
-    'Lesiones Terceros': {
+    Lesiones_Terceros: {
       type: String
     },
     Localidad: {
       type: String
     },
-    'Nombre Conductor': {
+    Nombre_Conductor: {
       type: String
     },
     Numero: {
       type: String
     },
-    'Numero de Documento': {
+    Numero_de_Documento: {
       type: String
     },
-    'Número de Siniestro': {
+    Numero_de_Siniestro: {
       type: String
     },
-    'Numero de Siniestro': {
+    Numero_de_Siniestro_Nuevo: {
       type: String
     },
     Oficina: {
       type: String
     },
-    País: {
+    Pais: {
       type: String
     },
     Poliza: {
@@ -106,7 +106,7 @@ let siniestroSchema: Schema<SiniestroType> = new mongoose.Schema<SiniestroType>(
     Responsable: {
       type: String
     },
-    'Tomador / Riesgo': {
+    Tomador_Riesgo: {
       type: String
     }
   }

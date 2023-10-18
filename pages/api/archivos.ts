@@ -26,7 +26,7 @@ export default function handler(
 
   let query: FilterQuery<ArchivoType> = {}
   if (incidentNumber) {
-    query['Nº de referencia'] = incidentNumber
+    query['Nro_de_referencia'] = incidentNumber
   }
   if (creationDate) {
     const filterDate = new Date(creationDate)
@@ -37,7 +37,7 @@ export default function handler(
     const startDate = new Date(year, month, day + 1, 0, 0, 0, 0)
     const endDate = new Date(year, month, day + 1, 23, 59, 59, 999)
 
-    query['Fecha de creación'] = {
+    query['Fecha_de_creacion'] = {
       $gte: startDate,
       $lt: endDate
     }

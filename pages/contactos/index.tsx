@@ -34,10 +34,10 @@ const ContactoPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -57,8 +57,8 @@ const ContactoPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'AceptaEnvioInformacion',
-      headerName: 'AceptaEnvioInformacion',
+      field: 'Acepta_Envio_Informacion',
+      headerName: 'Acepta_Envio_Informacion',
       minWidth: 170,
       flex: 1,
       headerClassName: 'theme--header',
@@ -81,16 +81,16 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Codigo Postal',
-      headerName: 'Codigo Postal',
+      field: 'Codigo_Postal',
+      headerName: 'Codigo_Postal',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Conexión',
-      headerName: 'Conexión',
+      field: 'Conexion',
+      headerName: 'Conexion',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
@@ -105,24 +105,24 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Correo electrónico no válido',
-      headerName: 'Correo electrónico no válido',
+      field: 'Correo_electronico_no_valido',
+      headerName: 'Correo_electronico_no_valido',
       minWidth: 210,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Correo-E alternativo 1',
-      headerName: 'Correo-E alternativo 1',
+      field: 'Correo_E_alternativo_1',
+      headerName: 'Correo_E_alternativo_1',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Correo-E alternativo 2',
-      headerName: 'Correo-E alternativo 2',
+      field: 'Correo_E_alternativo_2',
+      headerName: 'Correo_E_alternativo_2',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -137,86 +137,94 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Dirección de correo electrónico',
-      headerName: 'Dirección de correo electrónico',
+      field: 'Direccion_de_correo_electronico',
+      headerName: 'Direccion_de_correo_electronico',
       minWidth: 280,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Dni',
-      headerName: 'Dni',
+      field: 'DNI',
+      headerName: 'DNI',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha Alta',
-      headerName: 'Fecha Alta',
+      field: 'Fecha_Alta',
+      headerName: 'Fecha_Alta',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'FechaRechazoOp',
-      headerName: 'FechaRechazoOp',
+      field: 'Fecha_Rechazo_Op',
+      headerName: 'Fecha_Rechazo_Op',
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'ID_de_contacto',
+      headerName: 'ID_de_contacto',
       minWidth: 110,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de usuario',
-      headerName: 'ID de usuario',
+      field: 'ID_de_usuario',
+      headerName: 'ID_de_usuario',
       minWidth: 110,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID en AIS',
-      headerName: 'ID en AIS',
+      field: 'ID_en_AIS',
+      headerName: 'ID_en_AIS',
       minWidth: 110,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Id en BI',
-      headerName: 'Id en BI',
+      field: 'Id_en_BI',
+      headerName: 'Id_en_BI',
       minWidth: 110,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Localidad',
+      headerName: 'Localidad',
+      minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
@@ -230,8 +238,8 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'No Molestar',
-      headerName: 'No Molestar',
+      field: 'No_Molestar',
+      headerName: 'No_Molestar',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
@@ -246,64 +254,64 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Nombre completo',
-      headerName: 'Nombre completo',
+      field: 'Nombre_completo',
+      headerName: 'Nombre_completo',
       minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Número de Domicilio',
-      headerName: 'Número de Domicilio',
+      field: 'Numero_de_domicilio',
+      headerName: 'Numero_de_domicilio',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'País',
-      headerName: 'País',
+      field: 'Pais',
+      headerName: 'Pais',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: ' Piso',
-      headerName: ' Piso',
+      field: 'Piso',
+      headerName: 'Piso',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'PolizaVida',
-      headerName: 'PolizaVida',
+      field: 'Poliza_Vida',
+      headerName: 'Poliza_Vida',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'PolizaVida2',
-      headerName: 'PolizaVida2',
+      field: 'Poliza_Vida_2',
+      headerName: 'Poliza_Vida_2',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'PolizaVida3',
-      headerName: 'PolizaVida3',
+      field: 'Poliza_Vida_3',
+      headerName: 'Poliza_Vida_3',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'PolizaVida4',
-      headerName: 'PolizaVida4',
+      field: 'Poliza_Vida_4',
+      headerName: 'Poliza_Vida_4',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
@@ -318,72 +326,72 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Teléfono de la oficina sin formato',
-      headerName: 'Teléfono de la oficina sin formato',
+      field: 'Telefono_de_la_oficina_sin_formato',
+      headerName: 'Telefono_de_la_oficina_sin_formato',
       minWidth: 230,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono de oficina',
-      headerName: 'Teléfono de oficina',
+      field: 'Telefono_de_oficina',
+      headerName: 'Telefono_de_oficina',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono del asistente',
-      headerName: 'Teléfono del asistente',
+      field: 'Telefono_del_asistente',
+      headerName: 'Telefono_del_asistente',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono del asistente sin formato',
-      headerName: 'Teléfono del asistente sin formato',
+      field: 'Telefono_del_asistente_sin_formato',
+      headerName: 'Telefono_del_asistente_sin_formato',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono móvil',
-      headerName: 'Teléfono móvil',
+      field: 'Telefono_movil',
+      headerName: 'Telefono_movil',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono móvil sin formato',
-      headerName: 'Teléfono móvil sin formato',
+      field: 'Telefono_movil_sin_formato',
+      headerName: 'Telefono_movil_sin_formato',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono particular',
-      headerName: 'Teléfono particular',
+      field: 'Telefono_particular',
+      headerName: 'Telefono_particular',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Teléfono particular sin formato',
-      headerName: 'Teléfono particular sin formato',
+      field: 'Telefono_particular_sin_formato',
+      headerName: 'Telefono_particular_sin_formato',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'TipoDocumento',
-      headerName: 'TipoDocumento',
+      field: 'Tipo_Documento',
+      headerName: 'Tipo_Documento',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',

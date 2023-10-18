@@ -6,11 +6,11 @@ import type { RespuestaType } from '../types'
 let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
   {
     //_id: ObjectId: Identificador único de documento
-    'Nro Incidente': {
+    Nro_Incidente: {
       type: String,
       require: true
     },
-    'Clave ajena': {
+    Clave_ajena: {
       type: String
       //require: true
     },
@@ -18,19 +18,19 @@ let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
       type: String
       //require: true
     },
-    'Fecha de creación': {
+    Fecha_de_creacion: {
       type: Date,
       require: true
     },
-    'ID de contacto': {
+    ID_de_contacto: {
       type: String
       //require: true
     },
-    'ID de cuenta de canal': {
+    ID_de_cuenta_de_canal: {
       type: String
       //require: true
     },
-    'ID de hilo del incidente': {
+    ID_de_hilo_del_incidente: {
       type: String
       //require: true
     },
@@ -42,7 +42,7 @@ let respuestaSchema: Schema<RespuestaType> = new mongoose.Schema<RespuestaType>(
       type: String
       //require: true
     },
-    'Tipo de entrada de hilo': {
+    Tipo_de_entrada_de_hilo: {
       type: String
       //require: true
     },

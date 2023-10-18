@@ -6,27 +6,35 @@ import type { NotaPrivadaType } from '../types'
 let notaPrivadaSchema: Schema<NotaPrivadaType> =
   new mongoose.Schema<NotaPrivadaType>({
     //_id: ObjectId: Identificador único de documento
-    'Nº de referencia': {
+    Nro_de_referencia: {
       type: String,
       require: true
     },
-    'Fecha de creación': {
+    ID_de_incidente: {
+      type: String,
+      require: true
+    },
+    ID_de_hilo_del_incidente: {
+      type: String,
+      require: true
+    },
+    Fecha_de_creacion: {
       type: Date,
       require: true
     },
-    'Fecha de cierre': {
+    Fecha_de_cierre: {
       type: String
       //require: true
     },
-    'Modo de Contacto': {
+    Modo_de_Contacto: {
       type: String
       //require: true
     },
-    'Jerarquía de categoría': {
+    Jerarquia_de_categoria: {
       type: String
       //require: true
     },
-    'ID de categoría': {
+    ID_de_categoria: {
       type: String
       //require: true
     },

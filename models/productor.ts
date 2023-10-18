@@ -9,19 +9,19 @@ let productorSchema: Schema<ProductorType> = new mongoose.Schema<ProductorType>(
     Cliensec: {
       type: String
     },
-    CodigoCompleto: {
+    Codigo_Completo: {
       type: String
     },
-    DniCuit: {
+    Dni_Cuit: {
       type: String
     },
-    EjecutivoCuenta: {
+    Ejecutivo_Cuenta: {
       type: String
     },
     Gerente: {
       type: String
     },
-    GrupoOrganizador: {
+    Grupo_Organizador: {
       type: String
     },
     ID: {
@@ -33,7 +33,7 @@ let productorSchema: Schema<ProductorType> = new mongoose.Schema<ProductorType>(
     Segmentacion: {
       type: String
     },
-    UnidadDeNegocio: {
+    Unidad_De_Negocio: {
       type: String
     }
   }

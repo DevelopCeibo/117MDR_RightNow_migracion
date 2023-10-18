@@ -5,74 +5,74 @@ import type { PolizaType } from '../types'
 
 let polizaSchema: Schema<PolizaType> = new mongoose.Schema<PolizaType>({
   //_id: ObjectId: Identificador único de documento
-  'Acreedor Prendario/Hipotecario': {
+  Acreedor_Prendario_Hipotecario: {
     type: String
   },
-  'Actualizado por': {
+  Actualizado_por: {
     type: String
   },
   Bolso_Compra: {
     type: String
   },
-  'Canal de cobro': {
+  Canal_de_cobro: {
     type: String
   },
-  CodigoProductor: {
+  Codigo_Productor: {
     type: String
   },
-  Compaña: {
+  Compania: {
     type: String
   },
-  CondicionDeIVA: {
+  Condicion_de_IVA: {
     type: String
   },
-  Contact: {
+  Contacto: {
     type: String
   },
-  'Creado por': {
+  Creado_por: {
     type: String
   },
-  'E-Cupones': {
+  E_Cupones: {
     type: String
   },
-  'E-Póliza': {
+  E_Poliza: {
     type: String
   },
   Estado: {
     type: String
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date,
     required: true
   },
-  'Fecha De Emisión': {
+  Fecha_de_Emision: {
     type: String
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
   },
-  FechaSiniestro: {
+  Fecha_Siniestro: {
     type: String
   },
-  'Grupo de afinidad': {
+  Grupo_de_afinidad: {
     type: String
   },
-  'Grupo Organizador': {
+  Grupo_Organizador: {
     type: String
   },
   ID: {
     type: String
   },
-  'Numero de cuenta': {
+  Numero_de_cuenta: {
     type: String
   },
-  'Numero de Cuenta Enmascarado': {
+  Numero_de_Cuenta_Enmascarado: {
     type: String
   },
   Organizador: {
     type: String
   },
-  Póliza: {
+  Poliza: {
     type: String
   },
   Producto: {
@@ -87,19 +87,19 @@ let polizaSchema: Schema<PolizaType> = new mongoose.Schema<PolizaType>({
   Sucursal: {
     type: String
   },
-  'Tipo de cuenta': {
+  Tipo_de_cuenta: {
     type: String
   },
-  TomadorRiesgo: {
+  Tomador_Riesgo: {
     type: String
   },
   Vendedor: {
     type: String
   },
-  'Vigencia Desde': {
+  Vigencia_Desde: {
     type: String
   },
-  'Vigencia Hasta': {
+  Vigencia_Hasta: {
     type: String
   }
 })

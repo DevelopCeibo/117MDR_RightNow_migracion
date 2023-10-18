@@ -5,11 +5,11 @@ import type { IncidenteType } from '../types'
 
 const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
   //_id: ObjectId: Identificador único de documento
-  'Nº de referencia': {
+  Nro_de_referencia: {
     type: String,
     required: true
   },
-  'Actualizado por': {
+  Actualizado_por: {
     type: String
     //required: true
   },
@@ -17,7 +17,7 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: String
     //required: true
   },
-  'Buzón de correo': {
+  Buzon_de_correo: {
     type: String
     //required: true
   },
@@ -25,27 +25,27 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: String
     //required: true
   },
-  'Creado por cuenta': {
+  Creado_por_cuenta: {
     type: String
     //required: true
   },
-  'Modo de Contacto': {
+  Modo_de_Contacto: {
     type: String
     //required: true
   },
-  UsuarioIntra: {
+  Usuario_Intra: {
     type: String
     //required: true
   },
-  'Tipo de Incidente': {
+  Tipo_de_Incidente: {
     type: String
     //required: true
   },
-  'Tipo de estado': {
+  Tipo_de_estado: {
     type: String
     //required: true
   },
-  'Tipo Cobro': {
+  Tipo_Cobro: {
     type: String
     //required: true
   },
@@ -57,25 +57,25 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: String
     //required: true
   },
-  NroCuenta: {
+  Nro_Cuenta: {
     type: String
     //required: true
   },
-  'ID de producto': {
+  ID_de_producto: {
     type: String
   },
-  'ID de incidente': {
-    type: String
-    //required: true
-  },
-  'ID de disposición': {
-    type: String
-  },
-  'ID de contacto': {
+  ID_de_incidente: {
     type: String
     //required: true
   },
-  'ID de categoría': {
+  ID_de_disposicion: {
+    type: String
+  },
+  ID_de_contacto: {
+    type: String
+    //required: true
+  },
+  ID_de_categoria: {
     type: String
     //required: true
   },
@@ -83,23 +83,23 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: String
     //required: true
   },
-  FechaEfecto: {
+  Fecha_Efecto: {
     type: String
     //required: true
   },
-  'Fecha de última respuesta': {
+  Fecha_de_ultima_respuesta: {
     type: String
     //required: true
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
     //required: true
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date,
     required: true
   },
-  'Fecha de cierre': {
+  Fecha_de_cierre: {
     type: String
     //required: true
   },
@@ -107,11 +107,11 @@ const incidenteSchema: Schema<IncidenteType> = new Schema<IncidenteType>({
     type: String
     //required: true
   },
-  'Cuenta asignada': {
+  Cuenta_asignada: {
     type: String
     //required: true
   },
-  'ID de organización': {
+  ID_de_organizacion: {
     type: String
     //required: true
   }

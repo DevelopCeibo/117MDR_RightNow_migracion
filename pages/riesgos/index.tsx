@@ -35,10 +35,10 @@ const RiesgoPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,24 +58,24 @@ const RiesgoPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Contact',
-      headerName: 'Contact',
+      field: 'Contacto',
+      headerName: 'Contacto',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Detalle de Cobertura',
-      headerName: 'Detalle de Cobertura',
+      field: 'Detalle_de_Cobertura',
+      headerName: 'Detalle_de_Cobertura',
       minWidth: 600,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Detalle de Riesgo',
-      headerName: 'Detalle de Riesgo',
+      field: 'Detalle_de_Riesgo',
+      headerName: 'Detalle_de_Riesgo',
       minWidth: 600,
       flex: 1,
       headerClassName: 'theme--header',
@@ -90,21 +90,21 @@ const RiesgoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 200,
       flex: 2,
       headerClassName: 'theme--header',
@@ -120,16 +120,16 @@ const RiesgoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'IdTipoRiesgo',
-      headerName: 'IdTipoRiesgo',
+      field: 'Id_Tipo_Riesgo',
+      headerName: 'Id_Tipo_Riesgo',
       minWidth: 110,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'NumeroPoliza',
-      headerName: 'NumeroPoliza',
+      field: 'Numero_Poliza',
+      headerName: 'Numero_Poliza',
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',
@@ -152,8 +152,8 @@ const RiesgoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'TomadorRiesgo',
-      headerName: 'TomadorRiesgo',
+      field: 'Tomador_Riesgo',
+      headerName: 'Tomador_Riesgo',
       minWidth: 350,
       flex: 2,
       headerClassName: 'theme--header',

@@ -5,42 +5,42 @@ import type { ArchivoType } from '../types'
 
 const archivoSchema: Schema<ArchivoType> = new Schema<ArchivoType>({
   //_id: ObjectId: Identificador único de documento
-  'Nº de referencia': {
+  Nro_de_referencia: {
     type: String,
     required: true
   },
-  'Asociación de tabla': {
+  Asociacion_de_tabla: {
     type: String
   },
-  'Clave ajena': {
+  Clave_ajena: {
     type: String
   },
   Desactivado: {
     type: String
   },
-  Descripción: {
+  Descripcion: {
     type: String
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date,
     required: true
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
   },
-  'ID de archivo anexo': {
+  ID_de_archivo_anexo: {
     type: String
   },
-  'Índice de palabras clave': {
+  Indice_de_palabras_clave: {
     type: String
   },
   Nombre: {
     type: String
   },
-  'Nombre de archivo de usuario': {
+  Nombre_de_archivo_de_usuario: {
     type: String
   },
-  'Nombre de archivo local': {
+  Nombre_de_archivo_local: {
     type: String
   },
   Privado: {
@@ -49,13 +49,13 @@ const archivoSchema: Schema<ArchivoType> = new Schema<ArchivoType>({
   Secuencia: {
     type: String
   },
-  Tamaño: {
+  Tamanio: {
     type: String
   },
   Tipo: {
     type: String
   },
-  'Tipo de contenido': {
+  Tipo_de_contenido: {
     type: String
   }
 })
