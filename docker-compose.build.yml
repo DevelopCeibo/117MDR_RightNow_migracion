@@ -11,7 +11,7 @@ services:
       - ./data/db:/data/db
 
   app:
-    container_name: zurich_app
+    container_name: zurich_app_2
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,3 +19,5 @@ services:
       - 3000:3000
     environment:
       - MONGODB_URI=mongodb://db:27017/117mdr
+    volumes:
+      - ./assets:/app/assets
