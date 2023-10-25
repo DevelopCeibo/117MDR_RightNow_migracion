@@ -10,20 +10,20 @@ let orgazacionSchema: Schema<OrganizacionType> =
       type: String,
       require: true
     },
-    'Fecha de creación': {
+    Fecha_de_creacion: {
       type: Date,
       require: true
     },
-    'Fecha de última actualización': {
+    Fecha_de_ultima_actualizacion: {
       type: String
     },
-    'ID de organización': {
+    ID_de_organizacion: {
       type: String
     },
-    'Jerarquía de organización - Nivel 1': {
+    Jerarquia_de_organizacion_Nivel_1: {
       type: String
     },
-    'Nombre de organización': {
+    Nombre_de_organizacion: {
       type: String
     },
     Vendedor: {

@@ -5,7 +5,7 @@ import type { ContactoType } from '../types'
 
 const contactoSchema: Schema<ContactoType> = new Schema<ContactoType>({
   //_id: ObjectId: Identificador único de documento
-  AceptaEnvioInformacion: {
+  Acepta_Envio_Informacion: {
     type: String
   },
   Apellido: {
@@ -14,55 +14,55 @@ const contactoSchema: Schema<ContactoType> = new Schema<ContactoType>({
   Calle: {
     type: String
   },
-  'Codigo Postal': {
+  Codigo_Postal: {
     type: String
   },
-  Conexión: {
+  Conexion: {
     type: String
   },
   Conflictivo: {
     type: String
   },
-  'Correo electrónico no válido': {
+  Correo_electronico_no_valido: {
     type: String
   },
-  'Correo-E alternativo 1': {
+  Correo_E_alternativo_1: {
     type: String
   },
-  'Correo-E alternativo 2': {
+  Correo_E_alternativo_2: {
     type: String
   },
   Departamento: {
     type: String
   },
-  'Dirección de correo electrónico': {
+  Direccion_de_correo_electronico: {
     type: String
   },
-  Dni: {
+  DNI: {
     type: String
   },
-  'Fecha Alta': {
+  Fecha_Alta: {
     type: String
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
   },
-  FechaRechazoOp: {
+  Fecha_Rechazo_Op: {
     type: String
   },
-  'ID de contacto': {
+  ID_de_contacto: {
     type: String
   },
-  'ID de usuario': {
+  ID_de_usuario: {
     type: String
   },
-  'ID en AIS': {
+  ID_en_AIS: {
     type: String
   },
-  'Id en BI': {
+  Id_en_BI: {
     type: String
   },
   Localidad: {
@@ -71,64 +71,64 @@ const contactoSchema: Schema<ContactoType> = new Schema<ContactoType>({
   Marca_ADS: {
     type: String
   },
-  'No Molestar': {
+  No_Molestar: {
     type: String
   },
   Nombre: {
     type: String
   },
-  'Nombre completo': {
+  Nombre_completo: {
     type: String
   },
-  'Número de Domicilio': {
+  Numero_de_domicilio: {
     type: String
   },
-  País: {
+  Pais: {
     type: String
   },
   Piso: {
     type: String
   },
-  PolizaVida: {
+  Poliza_Vida: {
     type: String
   },
-  PolizaVida2: {
+  Poliza_Vida_2: {
     type: String
   },
-  PolizaVida3: {
+  Poliza_Vida_3: {
     type: String
   },
-  PolizaVida4: {
+  Poliza_Vida_4: {
     type: String
   },
   Provincia: {
     type: String
   },
-  'Teléfono de la oficina sin formato': {
+  Telefono_de_la_oficina_sin_formato: {
     type: String
   },
-  'Teléfono de oficina': {
+  Telefono_de_oficina: {
     type: String
   },
-  'Teléfono del asistente': {
+  Telefono_del_asistente: {
     type: String
   },
-  'Teléfono del asistente sin formato': {
+  Telefono_del_asistente_sin_formato: {
     type: String
   },
-  'Teléfono móvil': {
+  Telefono_movil: {
     type: String
   },
-  'Teléfono móvil sin formato': {
+  Telefono_movil_sin_formato: {
     type: String
   },
-  'Teléfono particular': {
+  Telefono_particular: {
     type: String
   },
-  'Teléfono particular sin formato': {
+  Telefono_particular_sin_formato: {
     type: String
   },
-  TipoDocumento: {
+  Tipo_Documento: {
     type: String
   },
   Vendedor: {

@@ -6,7 +6,10 @@ import type { LogActividadType } from '../types'
 let logActividadSchema: Schema<LogActividadType> =
   new mongoose.Schema<LogActividadType>({
     //_id: ObjectId: Identificador único de documento
-    'ID de contacto': {
+    ID_de_contacto: {
+      type: String
+    },
+    ID_de_incidente: {
       type: String
     },
     Fecha: {
@@ -19,20 +22,20 @@ let logActividadSchema: Schema<LogActividadType> =
       type: String,
       require: true
     },
-    'Acción realizada': {
+    Accion_realizada: {
       type: String,
       require: true
     },
-    Descripción: {
+    Descripcion: {
       type: String
     },
-    'ID de tipo de transacción': {
+    ID_de_tipo_de_transaccion: {
       type: String
     },
     Inicial: {
       type: String
     },
-    'Dirección IP del cliente': {
+    Direccion_IP_del_cliente: {
       type: String
     }
   })

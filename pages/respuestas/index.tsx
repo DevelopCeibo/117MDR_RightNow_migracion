@@ -35,10 +35,10 @@ const RespuestaPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'Nro_Incidente'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,8 +58,8 @@ const RespuestaPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Nro Incidente',
-      headerName: 'Nro Incidente',
+      field: 'Nro_Incidente',
+      headerName: 'Nro_Incidente',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
@@ -68,8 +68,8 @@ const RespuestaPage: NextPage = () => {
       )
     },
     {
-      field: 'Clave ajena',
-      headerName: 'Clave ajena',
+      field: 'Clave_ajena',
+      headerName: 'Clave_ajena',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
@@ -84,37 +84,37 @@ const RespuestaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'ID_de_contacto',
+      headerName: 'ID_de_contacto',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de cuenta de canal',
-      headerName: 'ID de cuenta de canal',
+      field: 'ID_de_cuenta_de_canal',
+      headerName: 'ID_de_cuenta_de_canal',
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de hilo del incidente',
-      headerName: 'ID de hilo del incidente',
+      field: 'ID_de_hilo_del_incidente',
+      headerName: 'ID_de_hilo_del_incidente',
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',
@@ -137,8 +137,8 @@ const RespuestaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Tipo de entrada de hilo',
-      headerName: 'Tipo de entrada de hilo',
+      field: 'Tipo_de_entrada_de_hilo',
+      headerName: 'Tipo_de_entrada_de_hilo',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',

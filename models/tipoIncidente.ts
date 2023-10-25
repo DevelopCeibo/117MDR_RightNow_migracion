@@ -6,10 +6,10 @@ import type { TipoIncidenteType } from '../types'
 let tipoIncidenteSchema: Schema<TipoIncidenteType> =
   new mongoose.Schema<TipoIncidenteType>({
     //_id: ObjectId: Identificador único de documento
-    Descripción: {
+    Descripcion: {
       type: String
     },
-    DisplayOrder: {
+    Display_Order: {
       type: String
     },
     ID: {

@@ -35,10 +35,10 @@ const SiniestroPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Número de Siniestro'
+      (item) => item.field === 'Numero_de_Siniestro'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,16 +58,16 @@ const SiniestroPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Apellido Conductor',
-      headerName: 'Apellido Conductor',
+      field: 'Apellido_Conductor',
+      headerName: 'Apellido_Conductor',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Apellido y Nombre',
-      headerName: 'Apellido y Nombre',
+      field: 'Apellido_y_Nombre',
+      headerName: 'Apellido_y_Nombre',
       minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
@@ -90,24 +90,24 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Codigo de Productor',
-      headerName: 'Codigo de Productor',
+      field: 'Codigo_de_Productor',
+      headerName: 'Codigo_de_Productor',
       minWidth: 160,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Código Postal',
-      headerName: 'Código Postal',
+      field: 'Codigo_Postal',
+      headerName: 'Codigo_Postal',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Código Producto',
-      headerName: 'Código Producto',
+      field: 'Codigo_Producto',
+      headerName: 'Codigo_Producto',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
@@ -122,32 +122,32 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Contact',
-      headerName: 'Contact',
+      field: 'Contacto',
+      headerName: 'Contacto',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Daños Propios',
-      headerName: 'Daños Propios',
+      field: 'Danios_Propios',
+      headerName: 'Danios_Propios',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Daños Terceros',
-      headerName: 'Daños Terceros',
+      field: 'Danios_Terceros',
+      headerName: 'Danios_Terceros',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'DocumentoConductor',
-      headerName: 'DocumentoConductor',
+      field: 'Documento_Conductor',
+      headerName: 'Documento_Conductor',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
@@ -162,21 +162,21 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha De Siniestro',
-      headerName: 'Fecha De Siniestro',
+      field: 'Fecha_de_siniestro',
+      headerName: 'Fecha_de_siniestro',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -184,16 +184,16 @@ const SiniestroPage: NextPage = () => {
     },
 
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 200,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha_Siniestro',
-      headerName: 'Fecha_Siniestro',
+      field: 'Fecha_siniestro',
+      headerName: 'Fecha_siniestro',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
@@ -216,8 +216,8 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Lesiones Terceros',
-      headerName: 'Lesiones Terceros',
+      field: 'Lesiones_Terceros',
+      headerName: 'Lesiones_Terceros',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
@@ -232,8 +232,8 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Nombre Conductor',
-      headerName: 'Nombre Conductor',
+      field: 'Nombre_Conductor',
+      headerName: 'Nombre_Conductor',
       minWidth: 230,
       flex: 2,
       headerClassName: 'theme--header',
@@ -248,23 +248,23 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Numero de Documento',
-      headerName: 'Numero de Documento',
+      field: 'Numero_de_Documento',
+      headerName: 'Numero_de_Documento',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Número de Siniestro',
-      headerName: 'Número de Siniestro',
+      field: 'Numero_de_Siniestro',
+      headerName: 'Numero_de_Siniestro',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header'
     },
     {
-      field: 'Numero de Siniestro',
-      headerName: 'Numero de Siniestro',
+      field: 'Numero_de_Siniestro_Nuevo',
+      headerName: 'Numero_de_Siniestro_Nuevo',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -279,8 +279,8 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'País',
-      headerName: 'País',
+      field: 'Pais',
+      headerName: 'Pais',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -327,8 +327,8 @@ const SiniestroPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Tomador / Riesgo',
-      headerName: 'Tomador / Riesgo',
+      field: 'Tomador_Riesgo',
+      headerName: 'Tomador_Riesgo',
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',

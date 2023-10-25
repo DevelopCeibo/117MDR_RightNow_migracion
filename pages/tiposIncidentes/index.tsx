@@ -35,10 +35,10 @@ const TiposIncidentesPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,16 +58,16 @@ const TiposIncidentesPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Descripción',
-      headerName: 'Descripción',
+      field: 'Descripcion',
+      headerName: 'Descripcion',
       minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'DisplayOrder',
-      headerName: 'DisplayOrder',
+      field: 'Display_Order',
+      headerName: 'Display_Order',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',

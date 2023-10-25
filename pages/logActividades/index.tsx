@@ -35,10 +35,10 @@ const ContactoPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'ID_de_incidente'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,12 +58,20 @@ const ContactoPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'ID_de_contacto',
+      headerName: 'ID_de_contacto',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
+    },
+    {
+      field: 'ID_de_incidente',
+      headerName: 'ID_de_incidente',
+      minWidth: 130,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: true
     },
     {
       field: 'Fecha',
@@ -90,24 +98,24 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Acción realizada',
-      headerName: 'Acción realizada',
+      field: 'Accion_realizada',
+      headerName: 'Accion_realizada',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Descripción',
-      headerName: 'Descripción',
+      field: 'Descripcion',
+      headerName: 'Descripcion',
       minWidth: 350,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de tipo de transacción',
-      headerName: 'ID de tipo de transacción',
+      field: 'ID_de_tipo_de_transaccion',
+      headerName: 'ID_de_tipo_de_transaccion',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -122,8 +130,8 @@ const ContactoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Dirección IP del cliente',
-      headerName: 'Dirección IP del cliente',
+      field: 'Direccion_IP_del_cliente',
+      headerName: 'Direccion_IP_del_cliente',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',

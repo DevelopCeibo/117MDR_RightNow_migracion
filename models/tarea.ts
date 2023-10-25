@@ -8,26 +8,26 @@ let tareaSchema: Schema<TareaType> = new mongoose.Schema<TareaType>({
   Asignado: {
     type: String
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date,
     require: true
   },
-  'Fecha de inicio': {
+  Fecha_de_inicio: {
     type: String
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
   },
-  'Fecha de vencimiento': {
+  Fecha_de_vencimiento: {
     type: String
   },
   Herencia: {
     type: String
   },
-  'ID de contacto': {
+  ID_de_contacto: {
     type: String
   },
-  'ID de incidente': {
+  ID_de_incidente: {
     type: String
   },
   Motivo: {
@@ -39,7 +39,7 @@ let tareaSchema: Schema<TareaType> = new mongoose.Schema<TareaType>({
   Notas: {
     type: String
   },
-  'Plantilla de tarea': {
+  Plantilla_de_tarea: {
     type: String
   }
 })

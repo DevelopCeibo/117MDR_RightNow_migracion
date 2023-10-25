@@ -35,10 +35,10 @@ const NotasPrivadasPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'ID_de_incidente'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -66,21 +66,21 @@ const NotasPrivadasPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de inicio',
-      headerName: 'Fecha de inicio',
+      field: 'Fecha_de_inicio',
+      headerName: 'Fecha_de_inicio',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -88,16 +88,16 @@ const NotasPrivadasPage: NextPage = () => {
     },
 
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de vencimiento',
-      headerName: 'Fecha de vencimiento',
+      field: 'Fecha_de_vencimiento',
+      headerName: 'Fecha_de_vencimiento',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -112,20 +112,20 @@ const NotasPrivadasPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'ID_de_contacto',
+      headerName: 'ID_de_contacto',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de incidente',
-      headerName: 'ID de incidente',
+      field: 'ID_de_incidente',
+      headerName: 'ID_de_incidente',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true
     },
     {
       field: 'Motivo',
@@ -152,8 +152,8 @@ const NotasPrivadasPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Plantilla de tarea',
-      headerName: 'Plantilla de tarea',
+      field: 'Plantilla_de_tarea',
+      headerName: 'Plantilla_de_tarea',
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',

@@ -35,10 +35,10 @@ const RespuestaPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -69,45 +69,45 @@ const RespuestaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 210,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de organización',
-      headerName: 'ID de organización',
+      field: 'ID_de_organizacion',
+      headerName: 'ID_de_organizacion',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Jerarquía de organización - Nivel 1',
-      headerName: 'Jerarquía de organización - Nivel 1',
+      field: 'Jerarquia_de_organizacion_Nivel_1',
+      headerName: 'Jerarquia_de_organizacion_Nivel_1',
       minWidth: 280,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Nombre de organización',
-      headerName: 'Nombre de organización',
+      field: 'Nombre_de_organizacion',
+      headerName: 'Nombre_de_organizacion',
       minWidth: 280,
       flex: 1,
       headerClassName: 'theme--header',

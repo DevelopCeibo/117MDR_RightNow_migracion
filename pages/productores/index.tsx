@@ -35,10 +35,10 @@ const ProductorPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -69,24 +69,24 @@ const ProductorPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'CodigoCompleto',
-      headerName: 'CodigoCompleto',
+      field: 'Codigo_Completo',
+      headerName: 'Codigo_Completo',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'DniCuit',
-      headerName: 'DniCuit',
+      field: 'Dni_Cuit',
+      headerName: 'Dni_Cuit',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'EjecutivoCuenta',
-      headerName: 'EjecutivoCuenta',
+      field: 'Ejecutivo_Cuenta',
+      headerName: 'Ejecutivo_Cuenta',
       minWidth: 350,
       flex: 1,
       headerClassName: 'theme--header',
@@ -101,8 +101,8 @@ const ProductorPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'GrupoOrganizador',
-      headerName: 'GrupoOrganizador',
+      field: 'Grupo_Organizador',
+      headerName: 'Grupo_Organizador',
       minWidth: 350,
       flex: 1,
       headerClassName: 'theme--header',
@@ -133,8 +133,8 @@ const ProductorPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'UnidadDeNegocio',
-      headerName: 'UnidadDeNegocio',
+      field: 'Unidad_De_Negocio',
+      headerName: 'Unidad_De_Negocio',
       minWidth: 280,
       flex: 1,
       headerClassName: 'theme--header',

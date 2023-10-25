@@ -35,10 +35,10 @@ const ArchivoPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,8 +58,8 @@ const ArchivoPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Nº de referencia',
-      headerName: 'Nº de referencia',
+      field: 'Nro_de_referencia',
+      headerName: 'Nro_de_referencia',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
@@ -68,16 +68,16 @@ const ArchivoPage: NextPage = () => {
       )
     },
     {
-      field: 'Asociación de tabla',
-      headerName: 'Asociación de tabla',
+      field: 'Asociacion_de_tabla',
+      headerName: 'Asociacion_de_tabla',
       minWidth: 200,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Clave ajena',
-      headerName: 'Clave ajena',
+      field: 'Clave_ajena',
+      headerName: 'Clave_ajena',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
@@ -92,29 +92,29 @@ const ArchivoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Descripción',
-      headerName: 'Descripción',
+      field: 'Descripcion',
+      headerName: 'Descripcion',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 210,
       flex: 2,
       headerClassName: 'theme--header',
@@ -122,16 +122,16 @@ const ArchivoPage: NextPage = () => {
     },
 
     {
-      field: 'ID de archivo anexo',
-      headerName: 'ID de archivo anexo',
+      field: 'ID_de_archivo_anexo',
+      headerName: 'ID_de_archivo_anexo',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Índice de palabras clave',
-      headerName: 'Índice de palabras clave',
+      field: 'Indice_de_palabras_clave',
+      headerName: 'Indice_de_palabras_clave',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
@@ -146,16 +146,16 @@ const ArchivoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Nombre de archivo de usuario',
-      headerName: 'Nombre de archivo de usuario',
+      field: 'Nombre_de_archivo_de_usuario',
+      headerName: 'Nombre_de_archivo_de_usuario',
       minWidth: 210,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Nombre de archivo local',
-      headerName: 'Nombre de archivo local',
+      field: 'Nombre_de_archivo_local',
+      headerName: 'Nombre_de_archivo_local',
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',
@@ -178,8 +178,8 @@ const ArchivoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Tamaño',
-      headerName: 'Tamaño',
+      field: 'Tamanio',
+      headerName: 'Tamanio',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
@@ -194,8 +194,8 @@ const ArchivoPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Tipo de contenido',
-      headerName: 'Tipo de contenido',
+      field: 'Tipo_de_contenido',
+      headerName: 'Tipo_de_contenido',
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',

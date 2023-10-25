@@ -34,10 +34,10 @@ const PolizaPage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro Incidente'
+      (item) => item.field === 'Poliza'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -57,16 +57,16 @@ const PolizaPage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Acreedor Prendario/Hipotecario',
-      headerName: 'Acreedor Prendario/Hipotecario',
+      field: 'Acreedor_Prendario_Hipotecario',
+      headerName: 'Acreedor_Prendario_Hipotecario',
       minWidth: 220,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Actualizado por',
-      headerName: 'Actualizado por',
+      field: 'Actualizado_por',
+      headerName: 'Actualizado_por',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
@@ -81,64 +81,64 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Canal de cobro',
-      headerName: 'Canal de cobro',
+      field: 'Canal_de_cobro',
+      headerName: 'Canal_de_cobro',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'CodigoProductor',
-      headerName: 'CodigoProductor',
+      field: 'Codigo_Productor',
+      headerName: 'Codigo_Productor',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Compaña',
-      headerName: 'Compaña',
+      field: 'Compania',
+      headerName: 'Compania',
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'CondicionDeIVA',
-      headerName: 'CondicionDeIVA',
+      field: 'Condicion_de_IVA',
+      headerName: 'Condicion_de_IVA',
       minWidth: 210,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Contact',
-      headerName: 'Contact',
+      field: 'Contacto',
+      headerName: 'Contacto',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Creado por',
-      headerName: 'Creado por',
+      field: 'Creado_por',
+      headerName: 'Creado_por',
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'E-Cupones',
-      headerName: 'E-Cupones',
+      field: 'E_Cupones',
+      headerName: 'E_Cupones',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'E-Póliza',
-      headerName: 'E-Póliza',
+      field: 'E_Poliza',
+      headerName: 'E_Poliza',
       minWidth: 130,
       flex: 2,
       headerClassName: 'theme--header',
@@ -153,53 +153,53 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha De Emisión',
-      headerName: 'Fecha De Emisión',
+      field: 'Fecha_de_Emision',
+      headerName: 'Fecha_de_Emision',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'FechaSiniestro',
-      headerName: 'FechaSiniestro',
+      field: 'Fecha_Siniestro',
+      headerName: 'Fecha_Siniestro',
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Grupo de afinidad',
-      headerName: 'Grupo de afinidad',
+      field: 'Grupo_de_afinidad',
+      headerName: 'Grupo_de_afinidad',
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Grupo Organizador',
-      headerName: 'Grupo Organizador',
+      field: 'Grupo_Organizador',
+      headerName: 'Grupo_Organizador',
       minWidth: 210,
       flex: 2,
       headerClassName: 'theme--header',
@@ -214,16 +214,16 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Numero de cuenta',
-      headerName: 'Numero de cuenta',
+      field: 'Numero_de_cuenta',
+      headerName: 'Numero_de_cuenta',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Numero de Cuenta Enmascarado',
-      headerName: 'Numero de Cuenta Enmascarado',
+      field: 'Numero_de_Cuenta_Enmascarado',
+      headerName: 'Numero_de_Cuenta_Enmascarado',
       minWidth: 230,
       flex: 1,
       headerClassName: 'theme--header',
@@ -238,12 +238,12 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Póliza',
-      headerName: 'Póliza',
+      field: 'Poliza',
+      headerName: 'Poliza',
       minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true
     },
     {
       field: 'Producto',
@@ -278,16 +278,16 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Tipo de cuenta',
-      headerName: 'Tipo de cuenta',
+      field: 'Tipo_de_cuenta',
+      headerName: 'Tipo_de_cuenta',
       minWidth: 210,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'TomadorRiesgo',
-      headerName: 'TomadorRiesgo',
+      field: 'Tomador_Riesgo',
+      headerName: 'Tomador_Riesgo',
       minWidth: 300,
       flex: 1,
       headerClassName: 'theme--header',
@@ -302,8 +302,16 @@ const PolizaPage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Vigencia Desde',
-      headerName: 'Vigencia Desde',
+      field: 'Vigencia_Desde',
+      headerName: 'Vigencia_Desde',
+      minWidth: 150,
+      flex: 1,
+      headerClassName: 'theme--header',
+      filterable: false
+    },
+    {
+      field: 'Vigencia_Hasta',
+      headerName: 'Vigencia_Hasta',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',

@@ -35,10 +35,10 @@ const IncidentePage: NextPage = () => {
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
     const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nº de referencia'
+      (item) => item.field === 'Nro_de_referencia'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha de creación'
+      (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -58,8 +58,8 @@ const IncidentePage: NextPage = () => {
 
   const columns = [
     {
-      field: 'Nº de referencia',
-      headerName: 'Nº de referencia',
+      field: 'Nro_de_referencia',
+      headerName: 'Nro_de_referencia',
       minWidth: 150,
       maxWidth: 300,
       width: 150,
@@ -70,8 +70,8 @@ const IncidentePage: NextPage = () => {
       )
     },
     {
-      field: 'Actualizado por',
-      headerName: 'Actualizado por',
+      field: 'Actualizado_por',
+      headerName: 'Actualizado_por',
       minWidth: 180,
       flex: 1.4,
       headerClassName: 'theme--header',
@@ -86,8 +86,8 @@ const IncidentePage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Buzón de correo',
-      headerName: 'Buzón de correo',
+      field: 'Buzon_de_correo',
+      headerName: 'Buzon_de_correo',
       minWidth: 280,
       flex: 1,
       headerClassName: 'theme--header',
@@ -102,48 +102,48 @@ const IncidentePage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Creado por cuenta',
-      headerName: 'Creado por cuenta',
+      field: 'Creado_por_cuenta',
+      headerName: 'Creado_por_cuenta',
       minWidth: 210,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Modo de Contacto',
-      headerName: 'Modo de Contacto',
+      field: 'Modo_de_Contacto',
+      headerName: 'Modo_de_Contacto',
       minWidth: 180,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'UsuarioIntra',
-      headerName: 'UsuarioIntra',
+      field: 'Usuario_Intra',
+      headerName: 'Usuario_Intra',
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Tipo de Incidente',
-      headerName: 'Tipo de Incidente',
+      field: 'Tipo_de_Incidente',
+      headerName: 'Tipo_de_Incidente',
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Tipo de estado',
-      headerName: 'Tipo de estado',
+      field: 'Tipo_de_estado',
+      headerName: 'Tipo_de_estado',
       minWidth: 130,
       flex: 0.9,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Tipo Cobro',
-      headerName: 'Tipo Cobro',
+      field: 'Tipo_Cobro',
+      headerName: 'Tipo_Cobro',
       minWidth: 130,
       flex: 0.6,
       headerClassName: 'theme--header',
@@ -166,48 +166,48 @@ const IncidentePage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'NroCuenta',
-      headerName: 'NroCuenta',
+      field: 'Nro_Cuenta',
+      headerName: 'Nro_Cuenta',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de producto',
-      headerName: 'ID de producto',
+      field: 'ID_de_producto',
+      headerName: 'ID_de_producto',
       minWidth: 230,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de incidente',
-      headerName: 'ID de incidente',
+      field: 'ID_de_incidente',
+      headerName: 'ID_de_incidente',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de disposición',
-      headerName: 'ID de disposición',
+      field: 'ID_de_disposicion',
+      headerName: 'ID_de_disposicion',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de contacto',
-      headerName: 'ID de contacto',
+      field: 'ID_de_contacto',
+      headerName: 'ID_de_contacto',
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de categoría',
-      headerName: 'ID de categoría',
+      field: 'ID_de_categoria',
+      headerName: 'ID_de_categoria',
       minWidth: 210,
       flex: 1,
       headerClassName: 'theme--header',
@@ -222,45 +222,45 @@ const IncidentePage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'FechaEfecto',
-      headerName: 'FechaEfecto',
+      field: 'Fecha_Efecto',
+      headerName: 'Fecha_Efecto',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de última respuesta',
-      headerName: 'Fecha de última respuesta',
+      field: 'Fecha_de_ultima_respuesta',
+      headerName: 'Fecha_de_ultima_respuesta',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de última actualización',
-      headerName: 'Fecha de última actualización',
+      field: 'Fecha_de_ultima_actualizacion',
+      headerName: 'Fecha_de_ultima_actualizacion',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'Fecha de creación',
-      headerName: 'Fecha de creación',
+      field: 'Fecha_de_creacion',
+      headerName: 'Fecha_de_creacion',
       type: 'dateTime',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
       valueGetter: (params: GridValueGetterParams) =>
-        new Date(params.row['Fecha de creación']),
+        new Date(params.row['Fecha_de_creacion']),
       filterOperators: getGridDateOperators().filter(
         (operator) => operator?.value === 'is'
       )
     },
     {
-      field: 'Fecha de cierre',
-      headerName: 'Fecha de cierre',
+      field: 'Fecha_de_cierre',
+      headerName: 'Fecha_de_cierre',
       minWidth: 200,
       flex: 1,
       headerClassName: 'theme--header',
@@ -275,16 +275,16 @@ const IncidentePage: NextPage = () => {
       filterable: false
     },
     {
-      field: 'Cuenta asignada',
-      headerName: 'Cuenta asignada',
+      field: 'Cuenta_asignada',
+      headerName: 'Cuenta_asignada',
       minWidth: 130,
       flex: 1.1,
       headerClassName: 'theme--header',
       filterable: false
     },
     {
-      field: 'ID de organización',
-      headerName: 'ID de organización',
+      field: 'ID_de_organizacion',
+      headerName: 'ID_de_organizacion',
       minWidth: 130,
       flex: 1.1,
       headerClassName: 'theme--header',

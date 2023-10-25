@@ -5,32 +5,32 @@ import type { RiesgoType } from '../types'
 
 let riesgoSchema: Schema<RiesgoType> = new mongoose.Schema<RiesgoType>({
   //_id: ObjectId: Identificador único de documento
-  Contact: {
+  Contacto: {
     type: String
   },
-  'Detalle de Cobertura': {
+  Detalle_de_Cobertura: {
     type: String
   },
-  'Detalle de Riesgo': {
+  Detalle_de_Riesgo: {
     type: String
   },
   Estado: {
     type: String
   },
-  'Fecha de creación': {
+  Fecha_de_creacion: {
     type: Date,
     require: true
   },
-  'Fecha de última actualización': {
+  Fecha_de_ultima_actualizacion: {
     type: String
   },
   ID: {
     type: String
   },
-  IdTipoRiesgo: {
+  Id_Tipo_Riesgo: {
     type: String
   },
-  NumeroPoliza: {
+  Numero_Poliza: {
     type: String
   },
   Patente: {
@@ -39,7 +39,7 @@ let riesgoSchema: Schema<RiesgoType> = new mongoose.Schema<RiesgoType>({
   Poliza: {
     type: String
   },
-  TomadorRiesgo: {
+  Tomador_Riesgo: {
     type: String
   }
 })

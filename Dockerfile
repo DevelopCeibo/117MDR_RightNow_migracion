@@ -37,7 +37,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/.next/seeds ./seeds
 COPY --from=builder --chown=nextjs:nodejs /app/.next/db ./db
 COPY --from=builder --chown=nextjs:nodejs /app/.next/models ./models
-COPY ./assets ./assets
 
 USER nextjs
 
