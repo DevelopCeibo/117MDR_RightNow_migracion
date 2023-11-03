@@ -27,22 +27,26 @@ const PolizaPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    polizaId: '',
+    polizaNombre: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
+    const polizaIdFilter = filterModel.items.find((item) => item.field === 'ID')
+
+    const polizaNombreFilter = filterModel.items.find(
       (item) => item.field === 'Poliza'
     )
+
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
     )
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      polizaId: polizaIdFilter ? polizaIdFilter.value : null,
+      polizaNombre: polizaNombreFilter ? polizaNombreFilter.value : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -211,7 +215,10 @@ const PolizaPage: NextPage = () => {
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Numero_de_cuenta',
@@ -240,10 +247,13 @@ const PolizaPage: NextPage = () => {
     {
       field: 'Poliza',
       headerName: 'Poliza',
-      minWidth: 300,
+      minWidth: 400,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: true
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Producto',
@@ -356,11 +366,11 @@ const PolizaPage: NextPage = () => {
           <DataGrid
             columns={columns}
             rows={rows?.polizas}
-            filterMode='server'
             rowCount={rows?.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}
