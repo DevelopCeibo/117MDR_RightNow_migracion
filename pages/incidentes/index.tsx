@@ -33,7 +33,6 @@ const IncidentePage: NextPage = () => {
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
     const incidentNumberFilter = filterModel.items.find(
       (item) => item.field === 'Nro_de_referencia'
     )

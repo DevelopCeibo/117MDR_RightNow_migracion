@@ -27,14 +27,17 @@ const ContactoPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    contactoApellido: '',
+    contactoDni: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro_de_referencia'
+    const contactoApellidoFilter = filterModel.items.find(
+      (item) => item.field === 'Apellido'
+    )
+    const contactoDniFilter = filterModel.items.find(
+      (item) => item.field === 'DNI'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
@@ -42,7 +45,10 @@ const ContactoPage: NextPage = () => {
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      contactoApellido: contactoApellidoFilter
+        ? contactoApellidoFilter.value
+        : null,
+      contactoDni: contactoDniFilter ? contactoDniFilter.value : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -70,7 +76,10 @@ const ContactoPage: NextPage = () => {
       minWidth: 170,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Calle',
@@ -150,7 +159,10 @@ const ContactoPage: NextPage = () => {
       minWidth: 150,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Fecha_Alta',

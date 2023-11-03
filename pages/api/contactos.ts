@@ -10,7 +10,8 @@ connectDB()
 type QueryParams = {
   page?: string
   limit?: string
-  incidentNumber?: string
+  contactoApellido?: string
+  contactoDni?: string
   creationDate?: string
 }
 
@@ -21,13 +22,17 @@ export default function handler(
   const {
     page = '0',
     limit = '25',
-    incidentNumber,
+    contactoApellido,
+    contactoDni,
     creationDate
   }: QueryParams = req.query
 
   let query: FilterQuery<ContactoType> = {}
-  if (incidentNumber) {
-    query['Nro_de_referencia'] = incidentNumber
+  if (contactoApellido) {
+    query['Apellido'] = contactoApellido
+  }
+  if (contactoDni) {
+    query['DNI'] = contactoDni
   }
   if (creationDate) {
     const filterDate = new Date(creationDate)
@@ -43,7 +48,7 @@ export default function handler(
       $lt: endDate
     }
   }
-
+  console.log('query', query)
   Promise.all([
     Contacto.find(query)
       .skip(Number(page) * Number(limit))

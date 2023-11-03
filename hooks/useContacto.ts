@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchContactos } from '../axios/fetchContacto'
 import { ContactoType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  contactoApellido: string
+  contactoDni: string
   creationDate: string
 }
 
@@ -20,11 +21,12 @@ export function useContact(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchContactos(
       queryOptions.page,
       queryOptions.limit,
       'contactos',
-      queryOptions.incidentNumber,
+      queryOptions.contactoApellido,
+      queryOptions.contactoDni,
       queryOptions.creationDate
     )
       .then((data) => {
