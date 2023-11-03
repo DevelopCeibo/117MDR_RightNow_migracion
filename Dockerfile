@@ -20,6 +20,12 @@ FROM node:16-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ENV TZ=America/Argentina/Buenos_Aires
+
+RUN apk add -U tzdata && \
+    cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    echo "${TZ}" > /etc/timezone
+
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001

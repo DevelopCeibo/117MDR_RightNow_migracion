@@ -39,7 +39,7 @@ const Login = () => {
     }
 
     login()
-    router.back()
+    router.push('/')
     return
   }
   return (
