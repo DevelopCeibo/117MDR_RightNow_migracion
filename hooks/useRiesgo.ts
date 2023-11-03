@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchRiesgo } from '../axios/fetchRiesgo'
+
 import { RiesgoType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  riesgoContacto: string
+  riesgoNumeroPoliza: string
   creationDate: string
 }
 
@@ -20,11 +22,12 @@ export function useRiesgo(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchRiesgo(
       queryOptions.page,
       queryOptions.limit,
       'riesgos',
-      queryOptions.incidentNumber,
+      queryOptions.riesgoContacto,
+      queryOptions.riesgoNumeroPoliza,
       queryOptions.creationDate
     )
       .then((data) => {
