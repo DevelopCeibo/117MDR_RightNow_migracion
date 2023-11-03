@@ -28,14 +28,18 @@ const RespuestaPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    organizacionId: '',
+    organizacionNombre: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
     filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro_de_referencia'
+    const organizacionIdFilter = filterModel.items.find(
+      (item) => item.field === 'ID_de_organizacion'
+    )
+    const organizacionNombreFilter = filterModel.items.find(
+      (item) => item.field === 'Nombre_de_organizacion'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
@@ -43,7 +47,10 @@ const RespuestaPage: NextPage = () => {
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      organizacionId: organizacionIdFilter ? organizacionIdFilter.value : null,
+      organizacionNombre: organizacionNombreFilter
+        ? organizacionNombreFilter.value
+        : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -95,7 +102,10 @@ const RespuestaPage: NextPage = () => {
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Jerarquia_de_organizacion_Nivel_1',
@@ -108,10 +118,13 @@ const RespuestaPage: NextPage = () => {
     {
       field: 'Nombre_de_organizacion',
       headerName: 'Nombre_de_organizacion',
-      minWidth: 280,
+      minWidth: 450,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Vendedor',
@@ -164,6 +177,7 @@ const RespuestaPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

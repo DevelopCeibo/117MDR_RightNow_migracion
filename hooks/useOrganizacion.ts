@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchOrganizacion } from '../axios/fetchOrganizacion'
+
 import { OrganizacionType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  organizacionId: string
+  organizacionNombre: string
   creationDate: string
 }
 
@@ -20,11 +22,12 @@ export function useOrganizacion(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchOrganizacion(
       queryOptions.page,
       queryOptions.limit,
       'organizaciones',
-      queryOptions.incidentNumber,
+      queryOptions.organizacionId,
+      queryOptions.organizacionNombre,
       queryOptions.creationDate
     )
       .then((data) => {
