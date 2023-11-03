@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchPoliza } from '../axios/fetchPoliza'
+
 import { PolizaType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  polizaId: string
+  polizaNombre: string
   creationDate: string
 }
 
@@ -20,11 +22,12 @@ export function usePolizas(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchPoliza(
       queryOptions.page,
       queryOptions.limit,
       'polizas',
-      queryOptions.incidentNumber,
+      queryOptions.polizaId,
+      queryOptions.polizaNombre,
       queryOptions.creationDate
     )
       .then((data) => {

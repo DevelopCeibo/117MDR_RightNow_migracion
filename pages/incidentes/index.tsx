@@ -33,7 +33,6 @@ const IncidentePage: NextPage = () => {
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
     const incidentNumberFilter = filterModel.items.find(
       (item) => item.field === 'Nro_de_referencia'
     )
@@ -329,11 +328,11 @@ const IncidentePage: NextPage = () => {
           <DataGrid
             columns={columns}
             rows={rows?.incidentes} //rows={incidentes}
-            filterMode='server'
             rowCount={rows?.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

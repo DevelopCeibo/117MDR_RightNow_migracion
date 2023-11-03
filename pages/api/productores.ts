@@ -10,8 +10,9 @@ connectDB()
 type QueryParams = {
   page?: string
   limit?: string
-  incidentNumber?: string
-  creationDate?: string
+  productorDniCuit?: string
+  productorId?: string
+  productorNombre?: string
 }
 
 export default function handler(
@@ -21,27 +22,20 @@ export default function handler(
   const {
     page = '0',
     limit = '25',
-    incidentNumber,
-    creationDate
+    productorDniCuit,
+    productorId,
+    productorNombre
   }: QueryParams = req.query
 
   let query: FilterQuery<ProductorType> = {}
-  if (incidentNumber) {
-    query['Nro_de_referencia'] = incidentNumber
+  if (productorDniCuit) {
+    query['Dni_Cuit'] = productorDniCuit
   }
-  if (creationDate) {
-    const filterDate = new Date(creationDate)
-
-    const day = filterDate.getDate()
-    const month = filterDate.getMonth()
-    const year = filterDate.getFullYear()
-    const startDate = new Date(year, month, day + 1, 0, 0, 0, 0)
-    const endDate = new Date(year, month, day + 1, 23, 59, 59, 999)
-
-    query['Fecha_de_creacion'] = {
-      $gte: startDate,
-      $lt: endDate
-    }
+  if (productorId) {
+    query['ID'] = productorId
+  }
+  if (productorNombre) {
+    query['Nombre'] = productorNombre
   }
 
   Promise.all([

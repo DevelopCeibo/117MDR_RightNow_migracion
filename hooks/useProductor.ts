@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchProductor } from '../axios/fetchProductor'
+
 import { ProductorType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
-  creationDate: string
+  productorDniCuit: string
+  productorId: string
+  productorNombre: string
 }
 
 type RowType = {
@@ -20,12 +22,13 @@ export function useProductores(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchProductor(
       queryOptions.page,
       queryOptions.limit,
       'productores',
-      queryOptions.incidentNumber,
-      queryOptions.creationDate
+      queryOptions.productorDniCuit,
+      queryOptions.productorId,
+      queryOptions.productorNombre
     )
       .then((data) => {
         setRows(data)

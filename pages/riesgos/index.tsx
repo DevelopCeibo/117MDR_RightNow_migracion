@@ -28,14 +28,17 @@ const RiesgoPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    riesgoContacto: '',
+    riesgoNumeroPoliza: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro_de_referencia'
+    const riesgoContactoFilter = filterModel.items.find(
+      (item) => item.field === 'Contacto'
+    )
+    const riesgoNumeroPolizaFilter = filterModel.items.find(
+      (item) => item.field === 'Numero_Poliza'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
@@ -43,7 +46,10 @@ const RiesgoPage: NextPage = () => {
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      riesgoContacto: riesgoContactoFilter ? riesgoContactoFilter.value : null,
+      riesgoNumeroPoliza: riesgoNumeroPolizaFilter
+        ? riesgoNumeroPolizaFilter.value
+        : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -63,7 +69,10 @@ const RiesgoPage: NextPage = () => {
       minWidth: 110,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Detalle_de_Cobertura',
@@ -133,7 +142,10 @@ const RiesgoPage: NextPage = () => {
       minWidth: 300,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Patente',
@@ -202,6 +214,7 @@ const RiesgoPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

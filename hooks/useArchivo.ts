@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchArchivo } from '../axios/fetchArchivo'
+
 import { ArchivoType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  archivoIncidentNumber: string
+  archivoNombre: string
   creationDate: string
 }
 
@@ -20,11 +22,12 @@ export function useArchivo(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchArchivo(
       queryOptions.page,
       queryOptions.limit,
       'archivos',
-      queryOptions.incidentNumber,
+      queryOptions.archivoIncidentNumber,
+      queryOptions.archivoNombre,
       queryOptions.creationDate
     )
       .then((data) => {

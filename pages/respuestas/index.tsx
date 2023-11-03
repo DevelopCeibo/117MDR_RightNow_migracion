@@ -195,6 +195,7 @@ const RespuestaPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

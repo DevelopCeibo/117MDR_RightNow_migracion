@@ -28,23 +28,31 @@ const ProductorPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
-    creationDate: ''
+    productorDniCuit: '',
+    productorId: '',
+    productorNombre: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
-      (item) => item.field === 'Nro_de_referencia'
+    const productorDniCuitFilter = filterModel.items.find(
+      (item) => item.field === 'Dni_Cuit'
     )
-    const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha_de_creacion'
+    const productorIdFilter = filterModel.items.find(
+      (item) => item.field === 'ID'
+    )
+    const productorNombreFilter = filterModel.items.find(
+      (item) => item.field === 'Nombre'
     )
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
-      creationDate: creationDateFilter ? creationDateFilter.value : null
+      productorDniCuit: productorDniCuitFilter
+        ? productorDniCuitFilter.value
+        : null,
+      productorId: productorIdFilter ? productorIdFilter.value : null,
+      productorNombre: productorNombreFilter
+        ? productorNombreFilter.value
+        : null
     }))
   }, [])
 
@@ -82,7 +90,10 @@ const ProductorPage: NextPage = () => {
       minWidth: 150,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Ejecutivo_Cuenta',
@@ -114,15 +125,21 @@ const ProductorPage: NextPage = () => {
       minWidth: 130,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Nombre',
       headerName: 'Nombre',
-      minWidth: 350,
+      minWidth: 450,
       flex: 1,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Segmentacion',
@@ -183,6 +200,7 @@ const ProductorPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

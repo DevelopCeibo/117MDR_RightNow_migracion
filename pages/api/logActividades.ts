@@ -37,7 +37,7 @@ export default function handler(
     const startDate = new Date(year, month, day + 1, 0, 0, 0, 0)
     const endDate = new Date(year, month, day + 1, 23, 59, 59, 999)
 
-    query['Fecha_de_creacion'] = {
+    query['Fecha'] = {
       $gte: startDate,
       $lt: endDate
     }
