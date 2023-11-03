@@ -28,14 +28,17 @@ const ArchivoPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    archivoIncidentNumber: '',
+    archivoNombre: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
+    const archivoIncidentNumberFilter = filterModel.items.find(
       (item) => item.field === 'Nro_de_referencia'
+    )
+    const archivoNombreFilter = filterModel.items.find(
+      (item) => item.field === 'Nombre_de_archivo_de_usuario'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
@@ -43,7 +46,10 @@ const ArchivoPage: NextPage = () => {
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      archivoIncidentNumber: archivoIncidentNumberFilter
+        ? archivoIncidentNumberFilter.value
+        : null,
+      archivoNombre: archivoNombreFilter ? archivoNombreFilter.value : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -148,15 +154,18 @@ const ArchivoPage: NextPage = () => {
     {
       field: 'Nombre_de_archivo_de_usuario',
       headerName: 'Nombre_de_archivo_de_usuario',
-      minWidth: 210,
+      minWidth: 400,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Nombre_de_archivo_local',
       headerName: 'Nombre_de_archivo_local',
-      minWidth: 300,
+      minWidth: 400,
       flex: 2,
       headerClassName: 'theme--header',
       filterable: false
@@ -244,6 +253,7 @@ const ArchivoPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

@@ -9,7 +9,8 @@ connectDB()
 type QueryParams = {
   page?: string
   limit?: string
-  incidentNumber?: string
+  siniestroNumero?: string
+  siniestroNumeroNuevo?: string
   creationDate?: string
 }
 
@@ -20,13 +21,17 @@ export default function handler(
   const {
     page = '0',
     limit = '25',
-    incidentNumber,
+    siniestroNumero,
+    siniestroNumeroNuevo,
     creationDate
   }: QueryParams = req.query
 
   let query: FilterQuery<SiniestroType> = {}
-  if (incidentNumber) {
-    query['Numero_de_Siniestro'] = incidentNumber
+  if (siniestroNumero) {
+    query['Numero_de_Siniestro'] = siniestroNumero
+  }
+  if (siniestroNumeroNuevo) {
+    query['Numero_de_Siniestro_Nuevo'] = siniestroNumeroNuevo
   }
   if (creationDate) {
     const filterDate = new Date(creationDate)

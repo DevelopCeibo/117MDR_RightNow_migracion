@@ -38,7 +38,7 @@ const ContactoPage: NextPage = () => {
       (item) => item.field === 'ID_de_incidente'
     )
     const creationDateFilter = filterModel.items.find(
-      (item) => item.field === 'Fecha_de_creacion'
+      (item) => item.field === 'Fecha'
     )
 
     setQueryOptions((prevOptions) => ({
@@ -176,11 +176,11 @@ const ContactoPage: NextPage = () => {
           <DataGrid
             columns={columns}
             rows={rows?.logActividades}
-            filterMode='server'
             rowCount={rows?.total}
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}

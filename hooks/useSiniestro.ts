@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { fetchData } from '../axios/fetchData'
+import { fetchSiniestro } from '../axios/fetchSiniestro'
+
 import { SiniestroType } from '../types'
 
 type QueryOptions = {
   page: number
   limit: number
-  incidentNumber: string
+  siniestroNumero: string
+  siniestroNumeroNuevo: string
   creationDate: string
 }
 
@@ -20,11 +22,12 @@ export function useSiniestro(queryOptions: QueryOptions) {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchData(
+    fetchSiniestro(
       queryOptions.page,
       queryOptions.limit,
       'siniestros',
-      queryOptions.incidentNumber,
+      queryOptions.siniestroNumero,
+      queryOptions.siniestroNumeroNuevo,
       queryOptions.creationDate
     )
       .then((data) => {

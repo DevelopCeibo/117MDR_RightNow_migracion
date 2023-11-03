@@ -28,14 +28,17 @@ const SiniestroPage: NextPage = () => {
   const [queryOptions, setQueryOptions] = useState({
     page: paginationModel.page,
     limit: paginationModel.pageSize,
-    incidentNumber: '',
+    siniestroNumero: '',
+    siniestroNumeroNuevo: '',
     creationDate: ''
   })
 
   const onFilterChange = useCallback((filterModel: GridFilterModel) => {
-    filterModel.items
-    const incidentNumberFilter = filterModel.items.find(
+    const siniestroNumeroFilter = filterModel.items.find(
       (item) => item.field === 'Numero_de_Siniestro'
+    )
+    const siniestroNumeroNuevoFilter = filterModel.items.find(
+      (item) => item.field === 'Numero_de_Siniestro_Nuevo'
     )
     const creationDateFilter = filterModel.items.find(
       (item) => item.field === 'Fecha_de_creacion'
@@ -43,7 +46,12 @@ const SiniestroPage: NextPage = () => {
 
     setQueryOptions((prevOptions) => ({
       ...prevOptions,
-      incidentNumber: incidentNumberFilter ? incidentNumberFilter.value : null,
+      siniestroNumero: siniestroNumeroFilter
+        ? siniestroNumeroFilter.value
+        : null,
+      siniestroNumeroNuevo: siniestroNumeroNuevoFilter
+        ? siniestroNumeroNuevoFilter.value
+        : null,
       creationDate: creationDateFilter ? creationDateFilter.value : null
     }))
   }, [])
@@ -260,7 +268,11 @@ const SiniestroPage: NextPage = () => {
       headerName: 'Numero_de_Siniestro',
       minWidth: 180,
       flex: 2,
-      headerClassName: 'theme--header'
+      headerClassName: 'theme--header',
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Numero_de_Siniestro_Nuevo',
@@ -268,7 +280,10 @@ const SiniestroPage: NextPage = () => {
       minWidth: 180,
       flex: 2,
       headerClassName: 'theme--header',
-      filterable: false
+      filterable: true,
+      filterOperators: getGridStringOperators().filter(
+        (operator) => operator?.value === 'equals'
+      )
     },
     {
       field: 'Oficina',
@@ -377,6 +392,7 @@ const SiniestroPage: NextPage = () => {
             getRowId={getRowId}
             pageSizeOptions={[25, 50, 100]}
             paginationMode='server'
+            filterMode='server'
             onFilterModelChange={onFilterChange}
             loading={isLoading}
             onPaginationModelChange={handlePaginationChange}
